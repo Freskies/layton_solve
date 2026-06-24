@@ -5,7 +5,7 @@ pub mod pallina_fuori;
 pub mod salto_del_cavallo;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::IlSognoDiUnVerme;
+	let enigma: ENIGMI = ENIGMI::DosaIlSucco;
 	println!("Start solving...");
 	match enigma {
 		ENIGMI::AlParcheggio => al_parcheggio::solve(),

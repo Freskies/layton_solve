@@ -14,7 +14,7 @@ If you can think of a better/faster way to solve the enigma, let me know; I'm da
 |:-------|:--------------------------------------------|
 | 019    | Al Parcheggio                               |
 | 023    | [Dosa il Succo](solutions/dosa_il_succo.md) |
-| 024    | Dosa il Latte                               |
+| 024    | [Dosa il Latte](solutions/dosa_il_latte.md) |
 | 058    | Pallina Fuori 1                             |
 | 107    | Il Sogno di un Verme                        |
 

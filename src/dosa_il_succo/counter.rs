@@ -127,7 +127,7 @@ impl Counter {
 
 	fn serialize_move(&self, legal_move: (usize, usize)) -> String {
 		format!(
-			"{} -> {}",
+			"{} → {}",
 			self.recipients[legal_move.0].get_name(),
 			self.recipients[legal_move.1].get_name()
 		)

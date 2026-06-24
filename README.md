@@ -8,13 +8,15 @@ feel free to peek at how I solved it.
 
 If you can think of a better/faster way to solve the enigma, let me know; I'm dawn to improve in this field.
 
-## Curious Village (Paese dei Misteri)
+The whole guide is in Italian because, surprise of surprise, I'm Italian. yay.
 
-| Number | Name (IT)                                   |
-|:-------|:--------------------------------------------|
-| 019    | Al Parcheggio                               |
-| 023    | [Dosa il Succo](solutions/dosa_il_succo.md) |
-| 024    | [Dosa il Latte](solutions/dosa_il_latte.md) |
-| 058    | Pallina Fuori 1                             |
-| 107    | Il Sogno di un Verme                        |
+## Paese dei Misteri
+
+| Numero | Nome Enigma                                               |
+|:-------|:----------------------------------------------------------|
+| 019    | Al Parcheggio                                             |
+| 023    | [Dosa il Succo](solutions/dosa_il_succo.md)               |
+| 024    | [Dosa il Latte](solutions/dosa_il_latte.md)               |
+| 058    | Pallina Fuori 1                                           |
+| 107    | [Il Sogno di un Verme](solutions/il_sogno_di_un_verme.md) |
 

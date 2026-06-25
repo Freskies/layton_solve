@@ -18,5 +18,6 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. yay.
 | 023    | [Dosa il Succo](solutions/dosa_il_succo.md)               |
 | 024    | [Dosa il Latte](solutions/dosa_il_latte.md)               |
 | 058    | Pallina Fuori 1                                           |
+| 078    | [Dosa l'Acqua](solutions/dosa_l_acqua.md)                 |
 | 107    | [Il Sogno di un Verme](solutions/il_sogno_di_un_verme.md) |
 

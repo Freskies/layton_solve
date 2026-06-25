@@ -1,4 +1,4 @@
-use crate::dosa_il_succo::recipient::Recipient;
+use crate::dosa_il_liquido::recipient::Recipient;
 use queues::{IsQueue, Queue, queue};
 use std::collections::HashMap;
 

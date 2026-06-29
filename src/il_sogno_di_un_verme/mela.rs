@@ -1,4 +1,4 @@
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Hash, Eq, PartialEq)]
 pub struct Mela {
 	pub pos_to_win: usize,
 }
@@ -6,9 +6,5 @@ pub struct Mela {
 impl Mela {
 	pub fn init(pos_to_win: usize) -> Self {
 		Mela { pos_to_win }
-	}
-
-	pub fn serialize(&self) -> String {
-		format!("{}", self.pos_to_win)
 	}
 }

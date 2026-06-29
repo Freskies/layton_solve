@@ -3,7 +3,9 @@ use crate::il_sogno_di_un_verme::point::{Point, Points};
 use queues::{IsQueue, Queue, queue};
 use std::collections::HashMap;
 
-#[derive(Clone)]
+const COORDS_ADDENDS: [(i8, i8); 4] = [(1, 0), (-1, 0), (0, 1), (0, -1)];
+
+#[derive(Copy, Clone, Hash, Eq, PartialEq)]
 pub struct Board {
 	board: [[Option<Mela>; 3]; 3],
 }
@@ -25,29 +27,26 @@ impl Board {
 	pub fn solve(&self) -> Vec<String> {
 		let mut queue: Queue<Board> = queue![];
 		let _ = queue.add(self.clone());
-		let start_id = self.serialize();
 
 		// stato (mossa, stato_padre)
-		let mut states: HashMap<String, (String, String)> = HashMap::new();
-		states.insert(start_id, ("".to_string(), "".to_string()));
+		let mut states: HashMap<Board, Option<(String, Board)>> = HashMap::new();
+		states.insert(*self, None);
 
 		while queue.size() != 0 {
 			let cur_state = queue.remove().unwrap();
-			let cur_id = cur_state.serialize();
 
 			if cur_state.win() {
-				return cur_state.traverse_solve(states, cur_id);
+				return cur_state.traverse_solve(states, cur_state);
 			}
 
 			let legal_moves = cur_state.legal_moves();
 			for legal_move in legal_moves {
 				let mut next_state = cur_state.clone();
 				let move_string = next_state.do_move(&legal_move);
-				let next_id = next_state.serialize();
 
-				if !states.contains_key(&next_id) {
+				if !states.contains_key(&next_state) {
 					let _ = queue.add(next_state);
-					states.insert(next_id, (move_string, cur_id.clone()));
+					states.insert(next_state, Some((move_string, cur_state)));
 				}
 			}
 		}
@@ -57,16 +56,15 @@ impl Board {
 
 	fn traverse_solve(
 		&self,
-		states: HashMap<String, (String, String)>,
-		cur_state: String,
+		states: HashMap<Board, Option<(String, Board)>>,
+		cur_state: Board,
 	) -> Vec<String> {
 		let mut move_list: Vec<String> = vec![];
-		let mut cur_id: String = cur_state;
+		let mut state: Board = cur_state;
 
-		while states.contains_key(&cur_id) {
-			let (sigle_move, father_id) = states.get(&cur_id).unwrap();
-			move_list.push(sigle_move.to_string());
-			cur_id = father_id.to_string();
+		while let Some(Some((move_string, parent_state))) = states.get(&state) {
+			move_list.push(move_string.clone());
+			state = *parent_state;
 		}
 
 		move_list.reverse();
@@ -88,10 +86,7 @@ impl Board {
 		let mut legal_moves = vec![];
 		let empty: Point = self.find_empty();
 
-		for i in (0..360).step_by(90) {
-			let rad = (i as f64).to_radians();
-			let x = rad.cos().round() as i8;
-			let y = rad.sin().round() as i8;
+		for (x, y) in COORDS_ADDENDS {
 			let board_x: i8 = (empty.0 as i8) + x;
 			let board_y: i8 = (empty.1 as i8) + y;
 			if (0..3i8).contains(&board_x) && (0..3i8).contains(&board_y) {
@@ -125,19 +120,5 @@ impl Board {
 		}
 
 		true
-	}
-
-	fn serialize(&self) -> String {
-		let mut serialized: String = "".to_string();
-		for row in &self.board {
-			for cell in row {
-				if let Some(mela) = cell {
-					serialized = format!("{}{}", serialized, mela.serialize())
-				} else {
-					serialized = format!("{}{}", serialized, "0")
-				}
-			}
-		}
-		serialized
 	}
 }

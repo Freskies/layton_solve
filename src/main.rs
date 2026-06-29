@@ -1,18 +1,21 @@
 pub mod al_parcheggio;
+pub mod da_mele_ad_arance;
 pub mod dosa_il_liquido;
 pub mod il_sogno_di_un_verme;
 pub mod pallina_fuori;
 pub mod salto_del_cavallo;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::DosaLAcqua;
+	let enigma: ENIGMI = ENIGMI::IlSognoDiUnVerme;
 	println!("Start solving...");
 	match enigma {
 		ENIGMI::AlParcheggio => al_parcheggio::solve(),
 		ENIGMI::DosaIlSucco => dosa_il_liquido::solve_succo(),
 		ENIGMI::DosaIlLatte => dosa_il_liquido::solve_latte(),
-		ENIGMI::PallinaFuori1 => pallina_fuori::solve(),
+		ENIGMI::PallinaFuori1 => pallina_fuori::solve1(),
+		ENIGMI::PallinaFuori2 => pallina_fuori::solve2(),
 		ENIGMI::DosaLAcqua => dosa_il_liquido::solve_acqua(),
+		ENIGMI::DaMeleAdArance => da_mele_ad_arance::solve(),
 		ENIGMI::IlSognoDiUnVerme => il_sogno_di_un_verme::solve(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
@@ -28,7 +31,9 @@ enum ENIGMI {
 	DosaIlSucco,      // 023
 	DosaIlLatte,      // 024
 	PallinaFuori1,    // 058 - TODO
+	PallinaFuori2,    // xxx - TODO
 	DosaLAcqua,       // 078
+	DaMeleAdArance,   // 079 - TODO low priority
 	IlSognoDiUnVerme, // 107
 	// -- scrigno di pandora --
 	SaltoDelCavallo1,

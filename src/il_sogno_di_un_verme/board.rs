@@ -1,13 +1,14 @@
 use crate::il_sogno_di_un_verme::mela::Mela;
-use crate::il_sogno_di_un_verme::point::{Point, Points};
-use queues::{IsQueue, Queue, queue};
-use std::collections::HashMap;
+use crate::il_sogno_di_un_verme::point::Point;
+use crate::il_sogno_di_un_verme::board_state::BoardState;
+use std::collections::{BinaryHeap, HashMap};
 
 const COORDS_ADDENDS: [(i8, i8); 4] = [(1, 0), (-1, 0), (0, 1), (0, -1)];
 
-#[derive(Copy, Clone, Hash, Eq, PartialEq)]
+#[derive(Copy, Clone, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct Board {
 	board: [[Option<Mela>; 3]; 3],
+	empty_pos: Point,
 }
 
 impl Board {
@@ -21,32 +22,45 @@ impl Board {
 		board[1][2] = Some(Mela::init(7));
 		board[2][0] = Some(Mela::init(6));
 		board[2][2] = Some(Mela::init(1));
-		Self { board }
+		Self {
+			board,
+			empty_pos: Point(2, 1),
+		}
 	}
 
 	pub fn solve(&self) -> Vec<String> {
-		let mut queue: Queue<Board> = queue![];
-		let _ = queue.add(self.clone());
+		let mut heap: BinaryHeap<BoardState> = BinaryHeap::new();
+		heap.push(BoardState {
+			f_score: self.manhattan(),
+			g_score: 0,
+			board: *self,
+		});
 
 		// stato (mossa, stato_padre)
-		let mut states: HashMap<Board, Option<(String, Board)>> = HashMap::new();
+		let mut states: HashMap<Board, Option<(u8, Board)>> = HashMap::new();
 		states.insert(*self, None);
 
-		while queue.size() != 0 {
-			let cur_state = queue.remove().unwrap();
-
-			if cur_state.win() {
-				return cur_state.traverse_solve(states, cur_state);
+		while let Some(BoardState { g_score, board: cur_board, .. }) = heap.pop()
+		{
+			if cur_board.manhattan() == 0 {
+				return cur_board.traverse_solve(states);
 			}
 
-			let legal_moves = cur_state.legal_moves();
-			for legal_move in legal_moves {
-				let mut next_state = cur_state.clone();
-				let move_string = next_state.do_move(&legal_move);
+			for legal_move in cur_board.legal_moves() {
+				let mut next_board = cur_board;
+				let move_int = next_board.do_move(&legal_move);
 
-				if !states.contains_key(&next_state) {
-					let _ = queue.add(next_state);
-					states.insert(next_state, Some((move_string, cur_state)));
+				if !states.contains_key(&next_board) {
+					let next_g = g_score + 1;
+					let next_f = next_g + next_board.manhattan();
+
+					heap.push(BoardState {
+						f_score: next_f,
+						g_score: next_g,
+						board: next_board,
+					});
+
+					states.insert(next_board, Some((move_int, cur_board)));
 				}
 			}
 		}
@@ -54,16 +68,12 @@ impl Board {
 		vec![]
 	}
 
-	fn traverse_solve(
-		&self,
-		states: HashMap<Board, Option<(String, Board)>>,
-		cur_state: Board,
-	) -> Vec<String> {
+	fn traverse_solve(&self, states: HashMap<Board, Option<(u8, Board)>>) -> Vec<String> {
 		let mut move_list: Vec<String> = vec![];
-		let mut state: Board = cur_state;
+		let mut state: Board = *self;
 
-		while let Some(Some((move_string, parent_state))) = states.get(&state) {
-			move_list.push(move_string.clone());
+		while let Some(Some((move_int, parent_state))) = states.get(&state) {
+			move_list.push(format!("{move_int}"));
 			state = *parent_state;
 		}
 
@@ -71,54 +81,42 @@ impl Board {
 		move_list
 	}
 
-	fn find_empty(&self) -> Point {
-		for (i_row, row) in self.board.iter().enumerate() {
-			for (i_cell, cell) in row.iter().enumerate() {
-				if cell.is_none() {
-					return Point(i_row, i_cell);
-				}
-			}
-		}
-		Point(255, 255)
-	}
-
-	fn legal_moves(&self) -> Vec<Points> {
+	fn legal_moves(&self) -> Vec<Point> {
 		let mut legal_moves = vec![];
-		let empty: Point = self.find_empty();
 
 		for (x, y) in COORDS_ADDENDS {
-			let board_x: i8 = (empty.0 as i8) + x;
-			let board_y: i8 = (empty.1 as i8) + y;
+			let board_x: i8 = (self.empty_pos.0 as i8) + x;
+			let board_y: i8 = (self.empty_pos.1 as i8) + y;
 			if (0..3i8).contains(&board_x) && (0..3i8).contains(&board_y) {
-				legal_moves.push(Points(Point(board_x as usize, board_y as usize), empty))
+				legal_moves.push(Point(board_x as usize, board_y as usize))
 			}
 		}
 
 		legal_moves
 	}
 
-	fn do_move(&mut self, points: &Points) -> String {
-		let m1: Option<Mela> = self.board[points.0.0][points.0.1];
-		let m2: Option<Mela> = self.board[points.1.0][points.1.1];
-		self.board[points.0.0][points.0.1] = m2;
-		self.board[points.1.0][points.1.1] = m1;
-		format!("{}", points.0.0 * 3 + points.0.1 + 1)
+	fn do_move(&mut self, point: &Point) -> u8 {
+		let puzzle_piece: Option<Mela> = self.board[point.0][point.1];
+		self.board[self.empty_pos.0][self.empty_pos.1] = puzzle_piece;
+		self.board[point.0][point.1] = None;
+		self.empty_pos = point.clone();
+		(point.0 * 3 + point.1 + 1) as u8
 	}
 
-	fn win(&self) -> bool {
-		let mut count = 0;
+	fn manhattan(&self) -> usize {
+		let mut distance = 0;
 
-		for row in &self.board {
-			for cell in row {
-				count += 1;
-				if let Some(mela) = cell {
-					if mela.pos_to_win != count {
-						return false;
-					}
+		for row in 0..3 {
+			for col in 0..3 {
+				if let Some(puzzle_piece) = self.board[row][col] {
+					let target_index = puzzle_piece.pos_to_win - 1;
+					let target_row = target_index / 3;
+					let target_col = target_index % 3;
+					distance += row.abs_diff(target_row) + col.abs_diff(target_col);
 				}
 			}
 		}
 
-		true
+		distance
 	}
 }

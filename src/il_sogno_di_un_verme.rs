@@ -3,6 +3,7 @@ use crate::il_sogno_di_un_verme::board::Board;
 pub mod mela;
 pub mod board;
 pub mod point;
+pub mod board_state;
 
 pub fn solve() {
 	let b: Board = Board::init();

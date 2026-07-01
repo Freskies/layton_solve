@@ -1,4 +1,4 @@
-#[derive(Copy, Clone, Hash, Eq, PartialEq)]
+#[derive(Copy, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub struct Mela {
 	pub pos_to_win: usize,
 }

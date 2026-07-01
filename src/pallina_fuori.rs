@@ -1,3 +1,5 @@
+pub mod pallina_fuori_solve;
+
 pub fn solve1() {
 	solve()
 }

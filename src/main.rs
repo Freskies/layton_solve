@@ -6,7 +6,7 @@ pub mod pallina_fuori;
 pub mod salto_del_cavallo;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::IlSognoDiUnVerme;
+	let enigma: ENIGMI = ENIGMI::DosaLAcqua;
 	println!("Start solving...");
 	match enigma {
 		ENIGMI::AlParcheggio => al_parcheggio::solve(),
@@ -27,13 +27,13 @@ fn main() {
 #[allow(unused)]
 enum ENIGMI {
 	// -- paese dei misteri --
-	AlParcheggio,     // 019 - TODO
+	AlParcheggio,     // 019 - TODO low priority (easy enough to solve, hard to find best path)
 	DosaIlSucco,      // 023
 	DosaIlLatte,      // 024
-	PallinaFuori1,    // 058 - TODO
-	PallinaFuori2,    // xxx - TODO
+	PallinaFuori1,    // 058 - TODO too hard Dio Porco
+	PallinaFuori2,    // xxx - TODO too hard Dio Porco
 	DosaLAcqua,       // 078
-	DaMeleAdArance,   // 079 - TODO low priority
+	DaMeleAdArance,   // 079 - TODO low priority (easy enough to solve, hard to find best path)
 	IlSognoDiUnVerme, // 107
 	// -- scrigno di pandora --
 	SaltoDelCavallo1,

@@ -1,8 +1,7 @@
 use crate::dosa_il_liquido::recipient::Recipient;
-use queues::{IsQueue, Queue, queue};
-use std::collections::HashMap;
+use std::collections::{HashMap, VecDeque};
 
-#[derive(Clone)]
+#[derive(Clone, Hash, Eq, PartialEq)]
 pub struct Counter {
 	pub recipients: Vec<Recipient>,
 	pub last_move: (usize, usize),
@@ -52,34 +51,30 @@ impl Counter {
 	}
 
 	pub fn solve(&mut self) -> Vec<String> {
-		let mut queue: Queue<Counter> = queue![];
-		let _ = queue.add(self.clone());
-		let start_id = self.serialize();
+		let mut queue: VecDeque<Counter> = VecDeque::new();
+		queue.push_back(self.clone());
 
-		// stato -> stato_padre, mossa
-		let mut states: HashMap<String, (String, String)> = HashMap::new();
-		states.insert(start_id, ("".to_string(), "".to_string()));
+		let mut states: HashMap<Counter, Option<(Counter, String)>> = HashMap::new();
+		states.insert(self.clone(), None);
 
-		while queue.size() != 0 {
-			let cur_state: Counter = queue.remove().unwrap();
-			let cur_id = cur_state.serialize();
+		while !queue.is_empty() {
+			let cur_state: Counter = queue.pop_front().unwrap();
 
 			if cur_state.win() {
-				return cur_state.traverse_moves_dict(states, cur_id);
+				return cur_state.traverse_moves_dict(states);
 			}
 
 			let legal_moves = cur_state.legal_moves();
 			for legal_move in legal_moves {
 				let mut new_state: Counter = cur_state.clone();
 				new_state.pour(legal_move);
-				let new_id = new_state.serialize();
 
-				if !states.contains_key(&new_id) {
+				if !states.contains_key(&new_state) {
 					states.insert(
-						new_id,
-						(cur_id.clone(), new_state.serialize_move(legal_move)),
+						new_state.clone(),
+						Some((cur_state.clone(), new_state.serialize_move(legal_move))),
 					);
-					let _ = queue.add(new_state);
+					queue.push_back(new_state);
 				}
 			}
 		}
@@ -89,16 +84,14 @@ impl Counter {
 
 	fn traverse_moves_dict(
 		&self,
-		states: HashMap<String, (String, String)>,
-		target: String,
+		states: HashMap<Counter, Option<(Counter, String)>>,
 	) -> Vec<String> {
 		let mut move_list: Vec<String> = vec![];
-		let mut cur_id: String = target;
+		let mut cur_counter: &Counter = self;
 
-		while cur_id != "" {
-			let (father_id, single_move) = states.get(&cur_id).unwrap();
-			move_list.push(single_move.to_string());
-			cur_id = father_id.to_string();
+		while let Some(Some((parent, move_str))) = states.get(cur_counter) {
+			move_list.push(format!("{move_str}"));
+			cur_counter = parent;
 		}
 
 		move_list.reverse();
@@ -115,14 +108,6 @@ impl Counter {
 			let (left, right) = self.recipients.split_at_mut(from);
 			right[0].pour(&mut left[to])
 		}
-	}
-
-	fn serialize(&self) -> String {
-		self.recipients
-			.iter()
-			.map(|r| r.serialize())
-			.collect::<Vec<String>>()
-			.join("_")
 	}
 
 	fn serialize_move(&self, legal_move: (usize, usize)) -> String {

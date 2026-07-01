@@ -1,6 +1,6 @@
 use std::cmp::min;
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Eq, PartialEq, Hash)]
 pub struct Recipient {
 	pub drink: u8,
 	pub space: u8,
@@ -28,9 +28,5 @@ impl Recipient {
 
 	pub fn get_name(&self) -> String {
 		format!("{}L", self.space)
-	}
-
-	pub fn serialize(&self) -> String {
-		format!("{}/{}", self.drink, self.space)
 	}
 }

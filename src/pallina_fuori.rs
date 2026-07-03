@@ -5,6 +5,7 @@ pub mod pallina_fuori_solve;
 pub mod point;
 pub mod legal_move;
 pub mod node;
+pub mod visited_record;
 /*
 0 -> empty space
 1 -> ball

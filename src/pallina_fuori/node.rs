@@ -1,5 +1,6 @@
 use crate::pallina_fuori::Board;
 use std::cmp::Ordering;
+use crate::pallina_fuori::legal_move::LegalMove;
 
 #[derive(Clone, Eq, PartialEq, Hash)]
 pub struct Node {
@@ -27,7 +28,7 @@ impl Node {
 		self.g_score == self.f_score
 	}
 
-	pub fn possible_nodes(&self) -> Vec<Node> {
+	pub fn possible_nodes(&self) -> Vec<(Node, LegalMove)> {
 		vec![]
 	}
 }

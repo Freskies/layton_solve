@@ -1,26 +1,29 @@
 use crate::pallina_fuori::Board;
 use std::cmp::Ordering;
-use crate::pallina_fuori::legal_move::LegalMove;
+use crate::pallina_fuori::piece_move::{PieceMove};
+use crate::pallina_fuori::point::Point;
 
 #[derive(Clone, Eq, PartialEq, Hash)]
 pub struct Node {
 	pub board: Board,
 	pub f_score: usize,
 	pub g_score: usize,
+	pub coords_ball: Point
 }
 
 impl Node {
-	pub fn init(board: Board, g_score: usize) -> Self {
+	pub fn init(board: Board, coords_ball: Point, g_score: Option<usize>, target_point: &Point) -> Self {
 		let mut node = Node {
 			board,
-			g_score,
-			f_score: g_score,
+			g_score: g_score.unwrap_or(0),
+			f_score: 0,
+			coords_ball
 		};
-		node.f_score += node.manhattan();
+		node.f_score = node.g_score + node.manhattan(target_point);
 		node
 	}
 
-	fn manhattan(&self) -> usize {
+	fn manhattan(&self, target_point: &Point) -> usize {
 		0
 	}
 
@@ -28,7 +31,7 @@ impl Node {
 		self.g_score == self.f_score
 	}
 
-	pub fn possible_nodes(&self) -> Vec<(Node, LegalMove)> {
+	pub fn possible_nodes(&self) -> Vec<(Node, PieceMove)> {
 		vec![]
 	}
 }

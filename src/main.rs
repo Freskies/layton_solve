@@ -6,7 +6,7 @@ pub mod pallina_fuori;
 pub mod salto_del_cavallo;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::PallinaFuori1;
+	let enigma: ENIGMI = ENIGMI::PallinaFuori4;
 	println!("Start solving...");
 	match enigma {
 		ENIGMI::AlParcheggio => al_parcheggio::solve(),
@@ -14,9 +14,11 @@ fn main() {
 		ENIGMI::DosaIlLatte => dosa_il_liquido::solve_latte(),
 		ENIGMI::PallinaFuori1 => pallina_fuori::solve1(),
 		ENIGMI::PallinaFuori2 => pallina_fuori::solve2(),
+		ENIGMI::PallinaFuori4 => pallina_fuori::solve4(),
 		ENIGMI::DosaLAcqua => dosa_il_liquido::solve_acqua(),
 		ENIGMI::DaMeleAdArance => da_mele_ad_arance::solve(),
 		ENIGMI::IlSognoDiUnVerme => il_sogno_di_un_verme::solve(),
+		ENIGMI::Le4Palline => pallina_fuori::solve4e(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
@@ -27,14 +29,16 @@ fn main() {
 #[allow(unused)]
 enum ENIGMI {
 	// -- paese dei misteri --
-	AlParcheggio,     // 019 - TODO low priority (easy enough to solve, hard to find best path)
-	DosaIlSucco,      // 023
-	DosaIlLatte,      // 024
-	PallinaFuori1,    // 058 - TODO too hard Dio Porco
-	PallinaFuori2,    // 090 - TODO too hard Dio Porco
-	DosaLAcqua,       // 078
-	DaMeleAdArance,   // 079 - TODO low priority (easy enough to solve, hard to find best path)
+	AlParcheggio,  // 019 - TODO low priority (easy enough to solve, hard to find best path)
+	DosaIlSucco,   // 023
+	DosaIlLatte,   // 024
+	PallinaFuori1, // 058
+	PallinaFuori2, // 090
+	PallinaFuori4, // 094
+	DosaLAcqua,    // 078
+	DaMeleAdArance, // 079 - TODO low priority (easy enough to solve, hard to find best path)
 	IlSognoDiUnVerme, // 107
+	Le4Palline,    // 129
 	// -- scrigno di pandora --
 	SaltoDelCavallo1,
 	SaltoDelCavallo2,

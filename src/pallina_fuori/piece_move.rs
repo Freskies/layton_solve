@@ -1,12 +1,16 @@
 use std::fmt::{Display, Formatter};
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug)]
 pub enum LegalMove {
 	UP,
 	RIGHT,
 	DOWN,
 	LEFT,
 }
+
+pub const DIRECTIONS: [LegalMove; 4] = [
+	LegalMove::UP, LegalMove::RIGHT, LegalMove::DOWN, LegalMove::LEFT
+];
 
 impl Display for LegalMove {
 	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
@@ -21,8 +25,8 @@ impl Display for LegalMove {
 	}
 }
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug)]
 pub struct PieceMove {
-	pub piece: char,
+	pub piece: u8,
 	pub legal_move: LegalMove,
 }

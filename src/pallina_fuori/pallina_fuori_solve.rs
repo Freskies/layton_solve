@@ -1,33 +1,50 @@
-use crate::pallina_fuori::Board;
+use crate::pallina_fuori::ball::Ball;
+use crate::pallina_fuori::board::Board;
 use crate::pallina_fuori::node::Node;
+use crate::pallina_fuori::piece_move::PieceMove;
+use crate::pallina_fuori::symmetry_meta::SymmetryMeta;
 use crate::pallina_fuori::visited_record::VisitedRecord;
 use std::collections::hash_map::Entry;
 use std::collections::{BinaryHeap, HashMap};
-use crate::pallina_fuori::piece_move::PieceMove;
-use crate::pallina_fuori::point::Point;
 
 type CameFrom = HashMap<Board, VisitedRecord>;
 
 pub struct PallinaFuoriSolve {
 	board: Board,
-	victory_slot: Point,
+	width: usize,
+	height: usize,
 	pub victory_path: Option<Vec<PieceMove>>,
+	balls: Vec<Ball>,
+	symmetry_meta: SymmetryMeta,
 }
 
 impl PallinaFuoriSolve {
-	pub fn init(board: Board, victory_slot: Point) -> Self {
+	pub fn init(board: Board, width: usize, height: usize, balls: Vec<Ball>) -> Self {
+		let symmetry_meta: SymmetryMeta = SymmetryMeta::build(&board, width);
 		PallinaFuoriSolve {
 			board,
+			width,
+			height,
 			victory_path: None,
-			victory_slot
+			symmetry_meta,
+			balls,
 		}
 	}
 
-	pub fn a_star(&mut self, ball_slot: Point) {
+	pub fn a_star(&mut self) {
 		let mut frontier: BinaryHeap<Node> = BinaryHeap::new();
 		let mut came_from: CameFrom = HashMap::new();
+		self.board.normalize(&self.symmetry_meta);
 
-		let start_node: Node = Node::init(self.board.clone(), ball_slot, None, &self.victory_slot);
+		let start_node: Node = Node::init(self.board.clone(), self.balls.clone(), None, None);
+		came_from.insert(
+			start_node.board.clone(),
+			VisitedRecord {
+				g_score: 0,
+				parent: None,
+				move_made: None,
+			},
+		);
 		frontier.push(start_node);
 
 		while !frontier.is_empty() {
@@ -44,7 +61,11 @@ impl PallinaFuoriSolve {
 				}
 			}
 
-			for (possible_node, piece_move) in current_node.possible_nodes() {
+			for (mut possible_node, piece_move) in
+				current_node.possible_nodes(self.width, self.height)
+			{
+				possible_node.board.normalize(&self.symmetry_meta);
+
 				let possible_record: VisitedRecord = VisitedRecord {
 					g_score: possible_node.g_score,
 					parent: Some(current_node.board.clone()),
@@ -65,10 +86,6 @@ impl PallinaFuoriSolve {
 				}
 			}
 		}
-	}
-
-	fn manhattan(&self, node: &Node) {
-
 	}
 
 	pub fn reconstruct_path(last_node: &Node, came_from: &CameFrom) -> Vec<PieceMove> {

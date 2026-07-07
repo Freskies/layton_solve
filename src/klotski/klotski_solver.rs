@@ -1,27 +1,27 @@
-use crate::pallina_fuori::ball::Ball;
-use crate::pallina_fuori::board::Board;
-use crate::pallina_fuori::node::Node;
-use crate::pallina_fuori::piece_move::PieceMove;
-use crate::pallina_fuori::symmetry_meta::SymmetryMeta;
-use crate::pallina_fuori::visited_record::VisitedRecord;
+use crate::klotski::vip::Vip;
+use crate::klotski::board::Board;
+use crate::klotski::node::Node;
+use crate::klotski::piece_move::PieceMove;
+use crate::klotski::symmetry_meta::SymmetryMeta;
+use crate::klotski::visited_record::VisitedRecord;
 use std::collections::hash_map::Entry;
 use std::collections::{BinaryHeap, HashMap};
 
 type CameFrom = HashMap<Board, VisitedRecord>;
 
-pub struct PallinaFuoriSolve {
+pub struct KlotskiSolver {
 	board: Board,
 	width: usize,
 	height: usize,
 	pub victory_path: Option<Vec<PieceMove>>,
-	balls: Vec<Ball>,
+	balls: Vec<Vip>,
 	symmetry_meta: SymmetryMeta,
 }
 
-impl PallinaFuoriSolve {
-	pub fn init(board: Board, width: usize, height: usize, balls: Vec<Ball>) -> Self {
+impl KlotskiSolver {
+	pub fn init(board: Board, width: usize, height: usize, balls: Vec<Vip>) -> Self {
 		let symmetry_meta: SymmetryMeta = SymmetryMeta::build(&board, width);
-		PallinaFuoriSolve {
+		KlotskiSolver {
 			board,
 			width,
 			height,

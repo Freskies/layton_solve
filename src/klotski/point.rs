@@ -1,4 +1,4 @@
-use crate::pallina_fuori::piece_move::LegalMove;
+use crate::klotski::piece_move::LegalMove;
 
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug, Ord, PartialOrd)]
 pub struct Point(pub usize, pub usize);

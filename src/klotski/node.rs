@@ -1,13 +1,13 @@
-use crate::pallina_fuori::Board;
-use crate::pallina_fuori::ball::Ball;
-use crate::pallina_fuori::piece_move::{DIRECTIONS, PieceMove};
-use crate::pallina_fuori::point::Point;
+use crate::klotski::Board;
+use crate::klotski::vip::Vip;
+use crate::klotski::piece_move::{DIRECTIONS, PieceMove};
+use crate::klotski::point::Point;
 use std::cmp::Ordering;
 
 #[derive(Clone, Eq, PartialEq, Hash)]
 pub struct Node {
 	pub board: Board,
-	pub balls: Vec<Ball>,
+	pub vips: Vec<Vip>,
 	pub f_score: usize,
 	pub g_score: usize,
 	pub last_piece: Option<u8>,
@@ -16,13 +16,13 @@ pub struct Node {
 impl Node {
 	pub fn init(
 		board: Board,
-		balls: Vec<Ball>,
+		vips: Vec<Vip>,
 		g_score: Option<usize>,
 		last_piece: Option<u8>,
 	) -> Self {
 		let mut node = Node {
 			board,
-			balls,
+			vips,
 			g_score: g_score.unwrap_or(0),
 			f_score: 0,
 			last_piece,
@@ -33,7 +33,7 @@ impl Node {
 
 	fn manhattan(&self) -> usize {
 		let mut distance: usize = 0;
-		for ball in &self.balls {
+		for ball in &self.vips {
 			distance += ball.position.0.abs_diff(ball.victory_slot.0)
 				+ ball.position.1.abs_diff(ball.victory_slot.1)
 		}
@@ -100,12 +100,12 @@ impl Node {
 						legal_move: direction.clone(),
 					};
 
-					let mut new_balls_positions: Vec<Ball> = vec![];
-					for ball in &self.balls {
-						new_balls_positions.push(ball.duplicate(if ball.id == letter {
-							ball.position.add(&direction, width, height).unwrap()
+					let mut new_balls_positions: Vec<Vip> = vec![];
+					for vip in &self.vips {
+						new_balls_positions.push(vip.duplicate(if vip.id == letter {
+							vip.position.add(&direction, width, height).unwrap()
 						} else {
-							ball.position.clone()
+							vip.position.clone()
 						}));
 					}
 

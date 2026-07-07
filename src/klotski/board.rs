@@ -1,5 +1,5 @@
 use std::ops::{Index, IndexMut};
-use crate::pallina_fuori::symmetry_meta::SymmetryMeta;
+use crate::klotski::symmetry_meta::SymmetryMeta;
 
 #[derive(Clone, Eq, PartialEq, Hash, Debug)]
 pub struct Board {

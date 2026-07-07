@@ -1,4 +1,4 @@
-use crate::pallina_fuori::board::Board;
+use crate::klotski::board::Board;
 use std::collections::HashMap;
 
 #[derive(Clone, Debug)]

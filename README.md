@@ -8,7 +8,7 @@ feel free to peek at how I solved it.
 
 If you can think of a better/faster way to solve the enigma, let me know; I'm dawn to improve in this field.
 
-The whole guide is in Italian because, surprise of surprise, I'm Italian. yay.
+The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 
 ## Paese dei Misteri
 
@@ -17,7 +17,21 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. yay.
 | 019    | Al Parcheggio                                             |
 | 023    | [Dosa il Succo](solutions/dosa_il_succo.md)               |
 | 024    | [Dosa il Latte](solutions/dosa_il_latte.md)               |
-| 058    | Pallina Fuori 1                                           |
+| 058    | [Pallina Fuori 1](solutions/pallina_fuori_1.md)           |
 | 078    | [Dosa l'Acqua](solutions/dosa_l_acqua.md)                 |
+| 090    | [Pallina Fuori 2](solutions/pallina_fuori_2.md)           |
+| 094    | [Pallina Fuori 4](solutions/pallina_fuori_4.md)           |
+| 097    | [Fuggi Principessa 1](solutions/fuggi_principessa_1.md)   |
+| 099    | [33333](solutions/33333.md)                               |
 | 107    | [Il Sogno di un Verme](solutions/il_sogno_di_un_verme.md) |
+| 129    | [Le 4 Palline](solutions/le_4_palline.md)                 |
+
+## Scrigno di Pandora
+
+| Numero | Nome Enigma         |
+|:-------|:--------------------|
+|        | Salto del Cavallo 1 |
+|        | Salto del Cavallo 2 |
+|        | Salto del Cavallo 3 |
+|        | Salto del Cavallo 4 |
 

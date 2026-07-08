@@ -1,5 +1,7 @@
 # Fuggi Principessa 1
 
+[Torna all'elenco](../README.md#paese-dei-misteri)
+
 | #  | Colore | Mosse             |
 |----|:-------|:------------------|
 | 1  | Verde  | destra            |

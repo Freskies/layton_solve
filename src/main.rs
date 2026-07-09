@@ -1,12 +1,13 @@
 pub mod al_parcheggio;
+pub mod d33333;
 pub mod dosa_il_liquido;
 pub mod il_sogno_di_un_verme;
 pub mod klotski;
 pub mod salto_del_cavallo;
-pub mod d33333;
+pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::D33333;
+	let enigma: ENIGMI = ENIGMI::TroppeRegine5;
 	println!("Start solving...");
 	match enigma {
 		ENIGMI::AlParcheggio => al_parcheggio::solve(),
@@ -20,6 +21,8 @@ fn main() {
 		ENIGMI::D33333 => d33333::solve(),
 		ENIGMI::IlSognoDiUnVerme => il_sogno_di_un_verme::solve(),
 		ENIGMI::Le4Palline => klotski::solve_le_4_palline(),
+		ENIGMI::TroppeRegine5 => troppe_regine::solve(),
+		ENIGMI::FuggiPrincipessa2 => klotski::solve_fuggi_principessa_2(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
@@ -41,6 +44,8 @@ enum ENIGMI {
 	D33333,            // 099
 	IlSognoDiUnVerme,  // 107
 	Le4Palline,        // 129
+	TroppeRegine5,     // 130
+	FuggiPrincipessa2, // 132
 	// -- scrigno di pandora --
 	SaltoDelCavallo1,
 	SaltoDelCavallo2,

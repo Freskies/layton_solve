@@ -25,6 +25,8 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 099    | [33333](solutions/33333.md)                               |
 | 107    | [Il Sogno di un Verme](solutions/il_sogno_di_un_verme.md) |
 | 129    | [Le 4 Palline](solutions/le_4_palline.md)                 |
+| 130    | [Troppe Regine 5](solutions/troppe_regine_5.md)           |
+| 132    | [Fuggi Principessa 2](solutions/fuggi_principessa_2.md)   |
 
 ## Scrigno di Pandora
 

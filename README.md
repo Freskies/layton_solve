@@ -27,6 +27,7 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 129    | [Le 4 Palline](solutions/le_4_palline.md)                 |
 | 130    | [Troppe Regine 5](solutions/troppe_regine_5.md)           |
 | 132    | [Fuggi Principessa 2](solutions/fuggi_principessa_2.md)   |
+| 135    | [Fuggi Principessa 3](solutions/fuggi_principessa_3.md)   |
 
 ## Scrigno di Pandora
 

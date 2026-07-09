@@ -7,7 +7,7 @@ pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::TroppeRegine5;
+	let enigma: ENIGMI = ENIGMI::FuggiPrincipessa3;
 	println!("Start solving...");
 	match enigma {
 		ENIGMI::AlParcheggio => al_parcheggio::solve(),
@@ -20,9 +20,11 @@ fn main() {
 		ENIGMI::FuggiPrincipessa1 => klotski::solve_fuggi_principessa_1(),
 		ENIGMI::D33333 => d33333::solve(),
 		ENIGMI::IlSognoDiUnVerme => il_sogno_di_un_verme::solve(),
+		ENIGMI::PallinaFuori3 => klotski::solve_pallina_fuori_3(),
 		ENIGMI::Le4Palline => klotski::solve_le_4_palline(),
 		ENIGMI::TroppeRegine5 => troppe_regine::solve(),
 		ENIGMI::FuggiPrincipessa2 => klotski::solve_fuggi_principessa_2(),
+		ENIGMI::FuggiPrincipessa3 => klotski::solve_fuggi_principessa_3(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
@@ -43,9 +45,11 @@ enum ENIGMI {
 	FuggiPrincipessa1, // 097
 	D33333,            // 099
 	IlSognoDiUnVerme,  // 107
+	PallinaFuori3,     // 120
 	Le4Palline,        // 129
 	TroppeRegine5,     // 130
 	FuggiPrincipessa2, // 132
+	FuggiPrincipessa3, // 135
 	// -- scrigno di pandora --
 	SaltoDelCavallo1,
 	SaltoDelCavallo2,

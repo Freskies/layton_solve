@@ -128,6 +128,38 @@ pub fn solve_pallina_fuori_2() {
 	solve(board, 6, 6, balls, translations);
 }
 
+pub fn solve_pallina_fuori_3() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'1', b'9', b'9', b'9'],
+		vec![b'0', b'a', b'a', b'b', b'c', b'0'],
+		vec![b'd', b'd', b'e', b'e', b'c', b'9'],
+		vec![b'9', b'f', b'e', b'e', b'g', b'g'],
+		vec![b'0', b'f', b'h', b'i', b'i', b'0'],
+		vec![b'9', b'9', b'9', b'0', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Pallina");
+	translations.insert(b'a', "Blu");
+	translations.insert(b'b', "Viola");
+	translations.insert(b'c', "Verde");
+	translations.insert(b'd', "Blu");
+	translations.insert(b'e', "Giallo");
+	translations.insert(b'f', "Verde");
+	translations.insert(b'g', "Blu");
+	translations.insert(b'h', "Viola");
+	translations.insert(b'i', "Blu");
+
+	let balls: Vec<Vip> = vec![Vip {
+		id: b'1',
+		victory_slot: Point(3, 5),
+		position: Point(2, 0),
+	}];
+
+	let board: Board = board_to_board(board);
+	solve(board, 6, 6, balls, translations);
+}
+
 pub fn solve_pallina_fuori_4() {
 	let board: Grid = vec![
 		vec![b'1', b'9', b'9', b'0'],
@@ -242,6 +274,34 @@ pub fn solve_fuggi_principessa_2() {
 	translations.insert(b'h', "Blu");
 	translations.insert(b'i', "Verde");
 	translations.insert(b'j', "Verde");
+
+	let balls: Vec<Vip> = vec![
+		Vip { id: b'1', victory_slot: Point(3, 1), position: Point(0, 1) },
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 5, 4, balls, translations);
+}
+
+pub fn solve_fuggi_principessa_3() {
+	let board: Grid = vec![
+		vec![b'a', b'a', b'b', b'b', b'c'],
+		vec![b'1', b'1', b'd', b'e', b'0'],
+		vec![b'1', b'1', b'd', b'f', b'0'],
+		vec![b'g', b'g', b'h', b'h', b'i'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Rosso");
+	translations.insert(b'a', "Blu");
+	translations.insert(b'b', "Blu");
+	translations.insert(b'c', "Verde");
+	translations.insert(b'd', "Viola");
+	translations.insert(b'e', "Verde");
+	translations.insert(b'f', "Verde");
+	translations.insert(b'g', "Blu");
+	translations.insert(b'h', "Blu");
+	translations.insert(b'i', "Verde");
 
 	let balls: Vec<Vip> = vec![
 		Vip { id: b'1', victory_slot: Point(3, 1), position: Point(0, 1) },

@@ -1,15 +1,17 @@
 pub mod al_parcheggio;
 pub mod d33333;
 pub mod dosa_il_liquido;
+pub mod frittelle_impilate;
 pub mod il_sogno_di_un_verme;
 pub mod klotski;
 pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::FuggiPrincipessa3;
+	let enigma: ENIGMI = ENIGMI::ChiETom;
 	println!("Start solving...");
 	match enigma {
+		// paese dei misteri
 		ENIGMI::AlParcheggio => al_parcheggio::solve(),
 		ENIGMI::DosaIlSucco => dosa_il_liquido::solve_succo(),
 		ENIGMI::DosaIlLatte => dosa_il_liquido::solve_latte(),
@@ -25,6 +27,10 @@ fn main() {
 		ENIGMI::TroppeRegine5 => troppe_regine::solve(),
 		ENIGMI::FuggiPrincipessa2 => klotski::solve_fuggi_principessa_2(),
 		ENIGMI::FuggiPrincipessa3 => klotski::solve_fuggi_principessa_3(),
+		// scrigno di pandora
+		ENIGMI::FrittelleImpilate1 => frittelle_impilate::solve1(),
+		ENIGMI::ChiETom => klotski::solve_chi_e_tom(),
+		ENIGMI::LOraDellePulizie1 => klotski::solve_rosso_l_ora_delle_pulizie_1(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
@@ -51,6 +57,9 @@ enum ENIGMI {
 	FuggiPrincipessa2, // 132
 	FuggiPrincipessa3, // 135
 	// -- scrigno di pandora --
+	FrittelleImpilate1, // 006
+	ChiETom,            // 015
+	LOraDellePulizie1,  // 022
 	SaltoDelCavallo1,
 	SaltoDelCavallo2,
 	SaltoDelCavallo3,

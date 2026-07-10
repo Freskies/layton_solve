@@ -24,6 +24,7 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 097    | [Fuggi Principessa 1](solutions/fuggi_principessa_1.md)   |
 | 099    | [33333](solutions/33333.md)                               |
 | 107    | [Il Sogno di un Verme](solutions/il_sogno_di_un_verme.md) |
+| 120    | [Pallina Fuori 3](solutions/pallina_fuori_3.md)           |
 | 129    | [Le 4 Palline](solutions/le_4_palline.md)                 |
 | 130    | [Troppe Regine 5](solutions/troppe_regine_5.md)           |
 | 132    | [Fuggi Principessa 2](solutions/fuggi_principessa_2.md)   |
@@ -31,10 +32,13 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 
 ## Scrigno di Pandora
 
-| Numero | Nome Enigma         |
-|:-------|:--------------------|
-|        | Salto del Cavallo 1 |
-|        | Salto del Cavallo 2 |
-|        | Salto del Cavallo 3 |
-|        | Salto del Cavallo 4 |
+| Numero | Nome Enigma                                                 |
+|:-------|:------------------------------------------------------------|
+| 006    | [Frittelle Impilate 1](solutions/frittelle_impilate_1.md)   |
+| 015    | [L'Ora delle Pulizie 1](solutions/l_ora_delle_pulizie_1.md) |
+| 022    | [Chi è Tom?](solutions/chi_e_tom.md)                        |
+|        | Salto del Cavallo 1                                         |
+|        | Salto del Cavallo 2                                         |
+|        | Salto del Cavallo 3                                         |
+|        | Salto del Cavallo 4                                         |
 

@@ -36,6 +36,7 @@ impl Board {
 				self.data[i] = map[c as usize];
 			}
 		}
+
 	}
 }
 

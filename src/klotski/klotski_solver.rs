@@ -1,13 +1,14 @@
-use crate::klotski::vip::Vip;
 use crate::klotski::board::Board;
 use crate::klotski::node::Node;
 use crate::klotski::piece_move::PieceMove;
 use crate::klotski::symmetry_meta::SymmetryMeta;
+use crate::klotski::vip::Vip;
 use crate::klotski::visited_record::VisitedRecord;
 use std::collections::hash_map::Entry;
 use std::collections::{BinaryHeap, HashMap};
 
-type CameFrom = HashMap<Board, VisitedRecord>;
+type StateKey = Board;
+type CameFrom = HashMap<StateKey, VisitedRecord>;
 
 pub struct KlotskiSolver {
 	board: Board,
@@ -36,7 +37,7 @@ impl KlotskiSolver {
 		let mut came_from: CameFrom = HashMap::new();
 		self.board.normalize(&self.symmetry_meta);
 
-		let start_node: Node = Node::init(self.board.clone(), self.balls.clone(), None, None);
+		let start_node: Node = Node::init(self.board.clone(), self.balls.clone(), None);
 		came_from.insert(
 			start_node.board.clone(),
 			VisitedRecord {
@@ -65,6 +66,7 @@ impl KlotskiSolver {
 				current_node.possible_nodes(self.width, self.height)
 			{
 				possible_node.board.normalize(&self.symmetry_meta);
+				let state_key = possible_node.board.clone();
 
 				let possible_record: VisitedRecord = VisitedRecord {
 					g_score: possible_node.g_score,
@@ -72,7 +74,7 @@ impl KlotskiSolver {
 					move_made: Some(piece_move),
 				};
 
-				match came_from.entry(possible_node.board.clone()) {
+				match came_from.entry(state_key) {
 					Entry::Occupied(mut occupied) => {
 						if possible_node.g_score < occupied.get().g_score {
 							occupied.insert(possible_record);
@@ -90,12 +92,12 @@ impl KlotskiSolver {
 
 	pub fn reconstruct_path(last_node: &Node, came_from: &CameFrom) -> Vec<PieceMove> {
 		let mut victory_path: Vec<PieceMove> = vec![];
-		let mut current_board: &Board = &last_node.board;
+		let mut current_state: StateKey = last_node.board.clone();
 
-		while let Some(record) = came_from.get(current_board) {
-			if let (Some(parent), Some(piece_move)) = (&record.parent, record.move_made) {
-				victory_path.push(piece_move);
-				current_board = parent;
+		while let Some(record) = came_from.get(&current_state) {
+			if let (Some(parent), Some(piece_move)) = (&record.parent, &record.move_made) {
+				victory_path.push(piece_move.clone());
+				current_state = parent.clone();
 			} else {
 				break;
 			}

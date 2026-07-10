@@ -2,94 +2,86 @@
 
 [Torna all'elenco](../README.md#paese-dei-misteri)
 
-| #  | Colore | Mosse             |
+| #  | Blocco | Mosse             |
 |----|:-------|:------------------|
-| 1  | Verde  | su                |
-| 2  | Blu    | destra            |
-| 3  | Verde  | giù               |
-| 4  | Viola  | giù               |
-| 5  | Verde  | sinistra          |
-| 6  | Blu    | destra            |
-| 7  | Verde  | su                |
-| 8  | Viola  | su                |
-| 9  | Blu    | sinistra          |
-| 10 | Verde  | giù               |
-| 11 | Verde  | giù               |
-| 12 | Blu    | giù               |
-| 13 | Verde  | destra destra     |
-| 14 | Viola  | su                |
-| 15 | Verde  | sinistra          |
-| 16 | Verde  | sinistra          |
-| 17 | Verde  | su                |
-| 18 | Blu    | destra            |
-| 19 | Verde  | giù               |
-| 20 | Viola  | giù               |
-| 21 | Blu    | destra destra     |
-| 22 | Rosso  | su                |
-| 23 | Blu    | su                |
-| 24 | Verde  | sinistra sinistra |
-| 25 | Blu    | sinistra sinistra |
-| 26 | Verde  | giù               |
-| 27 | Verde  | giù               |
-| 28 | Blu    | giù               |
-| 29 | Verde  | giù sinistra      |
-| 30 | Blu    | destra            |
-| 31 | Viola  | su                |
-| 32 | Blu    | sinistra          |
-| 33 | Verde  | su su             |
-| 34 | Blu    | destra            |
-| 35 | Blu    | destra            |
-| 36 | Verde  | su                |
-| 37 | Blu    | sinistra          |
-| 38 | Verde  | sinistra          |
-| 39 | Blu    | giù               |
-| 40 | Blu    | destra destra     |
-| 41 | Verde  | su sinistra       |
-| 42 | Viola  | giù giù           |
-| 43 | Blu    | sinistra          |
-| 44 | Verde  | su                |
-| 45 | Verde  | destra            |
+| 1  | Verde  | giù               |
+| 2  | Verde  | destra            |
+| 3  | Blu    | destra            |
+| 4  | Viola  | su                |
+| 5  | Blu    | su                |
+| 6  | Verde  | sinistra          |
+| 7  | Verde  | giù               |
+| 8  | Blu    | destra            |
+| 9  | Viola  | giù giù           |
+| 10 | Verde  | sinistra su       |
+| 11 | Verde  | sinistra sinistra |
+| 12 | Blu    | su                |
+| 13 | Verde  | su destra         |
+| 14 | Viola  | destra            |
+| 15 | Verde  | giù giù           |
+| 16 | Verde  | giù giù           |
+| 17 | Blu    | sinistra          |
+| 18 | Blu    | sinistra          |
+| 19 | Verde  | su su             |
+| 20 | Verde  | su su             |
+| 21 | Viola  | destra            |
+| 22 | Verde  | destra giù        |
+| 23 | Blu    | giù               |
+| 24 | Blu    | giù               |
+| 25 | Blu    | destra destra     |
+| 26 | Rosso  | su                |
+| 27 | Blu    | su                |
+| 28 | Verde  | sinistra sinistra |
+| 29 | Verde  | sinistra sinistra |
+| 30 | Blu    | giù               |
+| 31 | Blu    | destra destra     |
+| 32 | Rosso  | giù               |
+| 33 | Blu    | sinistra sinistra |
+| 34 | Blu    | su                |
+| 35 | Verde  | sinistra sinistra |
+| 36 | Verde  | giù sinistra      |
+| 37 | Viola  | su su             |
+| 38 | Blu    | destra            |
+| 39 | Blu    | destra            |
+| 40 | Verde  | giù giù           |
+| 41 | Rosso  | destra            |
+| 42 | Verde  | su su             |
+| 43 | Verde  | sinistra su       |
+| 44 | Verde  | sinistra sinistra |
+| 45 | Blu    | sinistra sinistra |
 | 46 | Blu    | giù               |
-| 47 | Verde  | sinistra          |
-| 48 | Verde  | su                |
-| 49 | Blu    | destra            |
-| 50 | Viola  | su su             |
-| 51 | Blu    | destra            |
-| 52 | Verde  | giù               |
-| 53 | Verde  | sinistra          |
-| 54 | Blu    | sinistra sinistra |
-| 55 | Blu    | giù               |
-| 56 | Verde  | giù destra        |
-| 57 | Viola  | destra            |
-| 58 | Rosso  | destra            |
-| 59 | Verde  | su su             |
-| 60 | Verde  | su su             |
-| 61 | Blu    | sinistra          |
-| 62 | Blu    | sinistra          |
-| 63 | Blu    | sinistra          |
-| 64 | Blu    | sinistra          |
-| 65 | Verde  | giù giù           |
-| 66 | Verde  | giù giù           |
-| 67 | Viola  | destra            |
-| 68 | Rosso  | destra            |
-| 69 | Verde  | destra su         |
-| 70 | Blu    | su                |
+| 47 | Verde  | giù destra        |
+| 48 | Rosso  | destra            |
+| 49 | Verde  | destra giù        |
+| 50 | Blu    | giù               |
+| 51 | Blu    | sinistra sinistra |
+| 52 | Rosso  | su                |
+| 53 | Verde  | destra destra     |
+| 54 | Verde  | destra            |
+| 55 | Verde  | su                |
+| 56 | Blu    | sinistra          |
+| 57 | Blu    | sinistra          |
+| 58 | Verde  | giù               |
+| 59 | Verde  | destra            |
+| 60 | Rosso  | giù               |
+| 61 | Blu    | destra destra     |
+| 62 | Blu    | su                |
+| 63 | Verde  | su                |
+| 64 | Verde  | su                |
+| 65 | Blu    | su                |
+| 66 | Blu    | sinistra sinistra |
+| 67 | Rosso  | giù               |
+| 68 | Verde  | destra destra     |
+| 69 | Verde  | destra destra     |
+| 70 | Blu    | giù               |
 | 71 | Blu    | sinistra sinistra |
-| 72 | Rosso  | giù               |
-| 73 | Verde  | destra destra     |
-| 74 | Verde  | destra destra     |
-| 75 | Blu    | su                |
-| 76 | Blu    | su                |
-| 77 | Blu    | su                |
-| 78 | Blu    | sinistra sinistra |
-| 79 | Rosso  | giù               |
-| 80 | Verde  | giù sinistra      |
-| 81 | Viola  | sinistra          |
-| 82 | Verde  | su su             |
-| 83 | Verde  | su su             |
-| 84 | Rosso  | destra            |
-| 85 | Verde  | giù giù           |
-| 86 | Verde  | giù giù           |
-| 87 | Viola  | sinistra          |
-| 88 | Verde  | sinistra su       |
-| 89 | Rosso  | su destra destra  |
+| 72 | Verde  | su sinistra       |
+| 73 | Viola  | sinistra          |
+| 74 | Verde  | su su             |
+| 75 | Verde  | su su             |
+| 76 | Rosso  | destra            |
+| 77 | Verde  | giù giù           |
+| 78 | Verde  | giù giù           |
+| 79 | Viola  | sinistra          |
+| 80 | Verde  | sinistra su       |
+| 81 | Rosso  | su                |

@@ -1,7 +1,9 @@
 use crate::klotski::board::Board;
+
 use std::collections::HashMap;
 
 #[derive(Clone, Debug)]
+
 pub struct SymmetryMeta {
 	pub piece_group: [u8; 128],
 	pub canonical_chars: [[u8; 16]; 16],
@@ -17,11 +19,14 @@ impl SymmetryMeta {
 
 		for i in 0..initial_board.len {
 			let c = initial_board[i];
+
 			if (b'0'..=b'9').contains(&c) {
 				continue;
 			}
+
 			let idx = c as usize;
 			seen[idx] = true;
+
 			let x = i % width;
 			let y = i / width;
 
@@ -40,6 +45,7 @@ impl SymmetryMeta {
 		}
 
 		let mut groups: HashMap<(usize, usize), Vec<u8>> = HashMap::new();
+
 		for c in 0..128 {
 			if seen[c] {
 				let w = max_x[c] - min_x[c] + 1;
@@ -54,6 +60,7 @@ impl SymmetryMeta {
 		};
 
 		let mut group_id = 1;
+
 		for (_, mut chars) in groups {
 			chars.sort(); // Ordine alfabetico per coerenza
 			for (i, &c) in chars.iter().enumerate() {
@@ -62,7 +69,6 @@ impl SymmetryMeta {
 			}
 			group_id += 1;
 		}
-
 		meta
 	}
 }

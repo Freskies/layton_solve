@@ -25,8 +25,8 @@ impl Display for LegalMove {
 	}
 }
 
-#[derive(Copy, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub struct PieceMove {
 	pub piece: u8,
-	pub legal_move: LegalMove,
+	pub moves: Vec<LegalMove>,
 }

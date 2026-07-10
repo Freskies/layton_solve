@@ -1,17 +1,17 @@
-use crate::klotski::vip::Vip;
 use crate::klotski::board::Board;
 use crate::klotski::klotski_solver::KlotskiSolver;
 use crate::klotski::piece_move::PieceMove;
 use crate::klotski::point::Point;
+use crate::klotski::vip::Vip;
 use std::collections::HashMap;
 
-pub mod vip;
 pub mod board;
-pub mod node;
 pub mod klotski_solver;
+pub mod node;
 pub mod piece_move;
 pub mod point;
 pub mod symmetry_meta;
+pub mod vip;
 pub mod visited_record;
 /*
 0 -> empty space
@@ -56,11 +56,14 @@ fn board_to_board(grid: Grid) -> Board {
 
 fn print_solution(solution: &Vec<PieceMove>, translations: HashMap<u8, &str>) {
 	for piece_move in solution {
-		println!(
-			"{} {}",
-			translations.get(&piece_move.piece).unwrap().to_string(),
-			piece_move.legal_move
-		)
+		println!();
+		print!(
+			"{}",
+			translations.get(&piece_move.piece).unwrap().to_string()
+		);
+		for legal_move in &piece_move.moves {
+			print!(" {}", legal_move);
+		}
 	}
 }
 
@@ -214,10 +217,26 @@ pub fn solve_le_4_palline() {
 	translations.insert(b'e', "Blu");
 
 	let balls: Vec<Vip> = vec![
-		Vip { id: b'1', victory_slot: Point(1, 5), position: Point(4, 0) },
-		Vip { id: b'2', victory_slot: Point(5, 4), position: Point(0, 1) },
-		Vip { id: b'3', victory_slot: Point(0, 1), position: Point(5, 4) },
-		Vip { id: b'4', victory_slot: Point(4, 0), position: Point(1, 5) },
+		Vip {
+			id: b'1',
+			victory_slot: Point(1, 5),
+			position: Point(4, 0),
+		},
+		Vip {
+			id: b'2',
+			victory_slot: Point(5, 4),
+			position: Point(0, 1),
+		},
+		Vip {
+			id: b'3',
+			victory_slot: Point(0, 1),
+			position: Point(5, 4),
+		},
+		Vip {
+			id: b'4',
+			victory_slot: Point(4, 0),
+			position: Point(1, 5),
+		},
 	];
 
 	let board: Board = board_to_board(board);
@@ -246,9 +265,11 @@ pub fn solve_fuggi_principessa_1() {
 	translations.insert(b'j', "Verde");
 	translations.insert(b'k', "Verde");
 
-	let balls: Vec<Vip> = vec![
-		Vip { id: b'1', victory_slot: Point(3, 1), position: Point(0, 1) },
-	];
+	let balls: Vec<Vip> = vec![Vip {
+		id: b'1',
+		victory_slot: Point(3, 1),
+		position: Point(0, 1),
+	}];
 
 	let board: Board = board_to_board(board);
 	solve(board, 5, 4, balls, translations);
@@ -275,9 +296,11 @@ pub fn solve_fuggi_principessa_2() {
 	translations.insert(b'i', "Verde");
 	translations.insert(b'j', "Verde");
 
-	let balls: Vec<Vip> = vec![
-		Vip { id: b'1', victory_slot: Point(3, 1), position: Point(0, 1) },
-	];
+	let balls: Vec<Vip> = vec![Vip {
+		id: b'1',
+		victory_slot: Point(3, 1),
+		position: Point(0, 1),
+	}];
 
 	let board: Board = board_to_board(board);
 	solve(board, 5, 4, balls, translations);
@@ -303,9 +326,11 @@ pub fn solve_fuggi_principessa_3() {
 	translations.insert(b'h', "Blu");
 	translations.insert(b'i', "Verde");
 
-	let balls: Vec<Vip> = vec![
-		Vip { id: b'1', victory_slot: Point(3, 1), position: Point(0, 1) },
-	];
+	let balls: Vec<Vip> = vec![Vip {
+		id: b'1',
+		victory_slot: Point(3, 1),
+		position: Point(0, 1),
+	}];
 
 	let board: Board = board_to_board(board);
 	solve(board, 5, 4, balls, translations);
@@ -329,18 +354,125 @@ pub fn solve_rosso_blu_2() {
 	translations.insert(b'7', "Blu-C");
 	translations.insert(b'8', "Blu-D");
 
-
 	let balls: Vec<Vip> = vec![
-		Vip { id: b'1', victory_slot: Point(4, 0), position: Point(0, 0) },
-		Vip { id: b'2', victory_slot: Point(4, 1), position: Point(0, 1) },
-		Vip { id: b'3', victory_slot: Point(4, 2), position: Point(0, 2) },
-		Vip { id: b'4', victory_slot: Point(4, 3), position: Point(0, 3) },
-		Vip { id: b'5', victory_slot: Point(0, 0), position: Point(4, 0) },
-		Vip { id: b'6', victory_slot: Point(0, 1), position: Point(4, 1) },
-		Vip { id: b'7', victory_slot: Point(0, 2), position: Point(4, 2) },
-		Vip { id: b'8', victory_slot: Point(0, 3), position: Point(4, 3) },
+		Vip {
+			id: b'1',
+			victory_slot: Point(4, 0),
+			position: Point(0, 0),
+		},
+		Vip {
+			id: b'2',
+			victory_slot: Point(4, 1),
+			position: Point(0, 1),
+		},
+		Vip {
+			id: b'3',
+			victory_slot: Point(4, 2),
+			position: Point(0, 2),
+		},
+		Vip {
+			id: b'4',
+			victory_slot: Point(4, 3),
+			position: Point(0, 3),
+		},
+		Vip {
+			id: b'5',
+			victory_slot: Point(0, 0),
+			position: Point(4, 0),
+		},
+		Vip {
+			id: b'6',
+			victory_slot: Point(0, 1),
+			position: Point(4, 1),
+		},
+		Vip {
+			id: b'7',
+			victory_slot: Point(0, 2),
+			position: Point(4, 2),
+		},
+		Vip {
+			id: b'8',
+			victory_slot: Point(0, 3),
+			position: Point(4, 3),
+		},
 	];
 
 	let board: Board = board_to_board(board);
 	solve(board, 5, 4, balls, translations);
+}
+
+pub fn solve_rosso_l_ora_delle_pulizie_1() {
+	let board: Grid = vec![
+		vec![b'1', b'1', b'9', b'9', b'9', b'9'],
+		vec![b'1', b'1', b'9', b'9', b'9', b'9'],
+		vec![b'a', b'a', b'b', b'b', b'0', b'0'],
+		vec![b'a', b'a', b'b', b'b', b'9', b'9'],
+		vec![b'c', b'c', b'd', b'd', b'9', b'9'],
+		vec![b'e', b'e', b'f', b'f', b'9', b'9'],
+		vec![b'9', b'9', b'0', b'0', b'9', b'9'],
+		vec![b'9', b'9', b'0', b'0', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Spazzatura");
+	translations.insert(b'a', "Giallo");
+	translations.insert(b'b', "Giallo");
+	translations.insert(b'c', "Azzurro");
+	translations.insert(b'd', "Azzurro");
+	translations.insert(b'e', "Azzurro");
+	translations.insert(b'f', "Azzurro");
+
+	let balls: Vec<Vip> = vec![Vip {
+		id: b'1',
+		victory_slot: Point(2, 6),
+		position: Point(0, 0),
+	}];
+
+	let board: Board = board_to_board(board);
+	solve(board, 6, 8, balls, translations);
+}
+
+pub fn solve_chi_e_tom() {
+	let board: Grid = vec![
+		vec![b'0', b'1', b'1', b'2', b'2', b'0'],
+		vec![b'0', b'1', b'a', b'b', b'2', b'0'],
+		vec![b'0', b'3', b'c', b'd', b'4', b'0'],
+		vec![b'0', b'3', b'3', b'4', b'4', b'0'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "┌");
+	translations.insert(b'2', "┐");
+	translations.insert(b'3', "└");
+	translations.insert(b'4', "┘");
+	translations.insert(b'a', "Blocco");
+	translations.insert(b'b', "Blocco");
+	translations.insert(b'c', "Blocco");
+	translations.insert(b'd', "Blocco");
+
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(1, 0),
+			victory_slot: Point(3, 2),
+		},
+		Vip {
+			id: b'2',
+			position: Point(3, 0),
+			victory_slot: Point(1, 2),
+		},
+		Vip {
+			id: b'3',
+			position: Point(1, 2),
+			victory_slot: Point(3, 0),
+		},
+		Vip {
+			id: b'4',
+			position: Point(4, 2),
+			victory_slot: Point(2, 0),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 6, 4, balls, translations);
 }

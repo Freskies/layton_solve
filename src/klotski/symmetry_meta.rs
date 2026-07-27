@@ -12,9 +12,7 @@ pub struct SymmetryMeta {
 impl SymmetryMeta {
 	pub fn build(initial_board: &Board, width: usize) -> Self {
 		let mut min_x = [255usize; 128];
-		let mut max_x = [0usize; 128];
 		let mut min_y = [255usize; 128];
-		let mut max_y = [0usize; 128];
 		let mut seen = [false; 128];
 
 		for i in 0..initial_board.len {
@@ -33,24 +31,22 @@ impl SymmetryMeta {
 			if x < min_x[idx] {
 				min_x[idx] = x;
 			}
-			if x > max_x[idx] {
-				max_x[idx] = x;
-			}
 			if y < min_y[idx] {
 				min_y[idx] = y;
 			}
-			if y > max_y[idx] {
-				max_y[idx] = y;
-			}
 		}
 
-		let mut groups: HashMap<(usize, usize), Vec<u8>> = HashMap::new();
+		let mut groups: HashMap<Vec<(usize, usize)>, Vec<u8>> = HashMap::new();
 
 		for c in 0..128 {
 			if seen[c] {
-				let w = max_x[c] - min_x[c] + 1;
-				let h = max_y[c] - min_y[c] + 1;
-				groups.entry((w, h)).or_default().push(c as u8);
+				let mut shape = Vec::new();
+				for i in 0..initial_board.len {
+					if initial_board[i] == c as u8 {
+						shape.push((i % width - min_x[c], i / width - min_y[c]));
+					}
+				}
+				groups.entry(shape).or_default().push(c as u8);
 			}
 		}
 

@@ -6,7 +6,11 @@ pub fn solve1() {
 	solve(3);
 }
 
-pub fn solve(num_frittelle: u8) {
+pub fn solve2() {
+	solve(4);
+}
+
+fn solve(num_frittelle: u8) {
 	let mut solver = FrittelleImpilateSolver::init(num_frittelle);
 	solver.bfs();
 	if let Some(path) = solver.victory_path {

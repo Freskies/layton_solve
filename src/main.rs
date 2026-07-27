@@ -8,7 +8,7 @@ pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::ChiETom;
+	let enigma: ENIGMI = ENIGMI::LOraDellePulizie2;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -30,7 +30,10 @@ fn main() {
 		// scrigno di pandora
 		ENIGMI::FrittelleImpilate1 => frittelle_impilate::solve1(),
 		ENIGMI::ChiETom => klotski::solve_chi_e_tom(),
-		ENIGMI::LOraDellePulizie1 => klotski::solve_rosso_l_ora_delle_pulizie_1(),
+		ENIGMI::LOraDellePulizie1 => klotski::solve_l_ora_delle_pulizie_1(),
+		ENIGMI::RitiroBagnagli => klotski::solve_ritiro_bagagli(),
+		ENIGMI::FrittelleImpilate2 => frittelle_impilate::solve2(),
+		ENIGMI::LOraDellePulizie2 => klotski::solve_l_ora_delle_pulizie_2(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
@@ -60,6 +63,9 @@ enum ENIGMI {
 	FrittelleImpilate1, // 006
 	ChiETom,            // 015
 	LOraDellePulizie1,  // 022
+	RitiroBagnagli,     // 045
+	FrittelleImpilate2, // 083
+	LOraDellePulizie2,  // 118
 	SaltoDelCavallo1,
 	SaltoDelCavallo2,
 	SaltoDelCavallo3,

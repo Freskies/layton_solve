@@ -401,7 +401,7 @@ pub fn solve_rosso_blu_2() {
 	solve(board, 5, 4, balls, translations);
 }
 
-pub fn solve_rosso_l_ora_delle_pulizie_1() {
+pub fn solve_l_ora_delle_pulizie_1() {
 	let board: Grid = vec![
 		vec![b'1', b'1', b'9', b'9', b'9', b'9'],
 		vec![b'1', b'1', b'9', b'9', b'9', b'9'],
@@ -424,8 +424,38 @@ pub fn solve_rosso_l_ora_delle_pulizie_1() {
 
 	let balls: Vec<Vip> = vec![Vip {
 		id: b'1',
-		victory_slot: Point(2, 6),
 		position: Point(0, 0),
+		victory_slot: Point(2, 6),
+	}];
+
+	let board: Board = board_to_board(board);
+	solve(board, 6, 8, balls, translations);
+}
+
+pub fn solve_l_ora_delle_pulizie_2() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'1', b'1', b'9', b'9'],
+		vec![b'9', b'9', b'1', b'1', b'9', b'9'],
+		vec![b'0', b'0', b'0', b'0', b'0', b'0'],
+		vec![b'0', b'a', b'a', b'b', b'b', b'0'],
+		vec![b'9', b'c', b'a', b'b', b'd', b'9'],
+		vec![b'9', b'c', b'c', b'd', b'd', b'9'],
+		vec![b'9', b'9', b'e', b'e', b'9', b'9'],
+		vec![b'9', b'9', b'0', b'0', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Spazzatura");
+	translations.insert(b'a', "Viola");
+	translations.insert(b'b', "Arancione");
+	translations.insert(b'c', "Giallo");
+	translations.insert(b'd', "Verde");
+	translations.insert(b'e', "Azzurro");
+
+	let balls: Vec<Vip> = vec![Vip {
+		id: b'1',
+		position: Point(2, 0),
+		victory_slot: Point(2, 6),
 	}];
 
 	let board: Board = board_to_board(board);
@@ -475,4 +505,35 @@ pub fn solve_chi_e_tom() {
 
 	let board: Board = board_to_board(board);
 	solve(board, 6, 4, balls, translations);
+}
+
+pub fn solve_ritiro_bagagli() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'1', b'9', b'9'],
+		vec![b'0', b'a', b'b', b'b', b'0'],
+		vec![b'c', b'a', b'a', b'b', b'd'],
+		vec![b'e', b'f', b'f', b'g', b'g'],
+		vec![b'9', b'9', b'0', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Bagaglio");
+	translations.insert(b'a', "Blu");
+	translations.insert(b'b', "Giallo");
+	translations.insert(b'c', "Verde");
+	translations.insert(b'd', "Verde");
+	translations.insert(b'e', "Verde");
+	translations.insert(b'f', "Rosso");
+	translations.insert(b'g', "Rosso");
+
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(2, 0),
+			victory_slot: Point(2, 4),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 5, 5, balls, translations);
 }

@@ -1,5 +1,5 @@
-use std::ops::{Index, IndexMut};
 use crate::klotski::symmetry_meta::SymmetryMeta;
+use std::ops::{Index, IndexMut};
 
 #[derive(Clone, Eq, PartialEq, Hash, Debug)]
 pub struct Board {
@@ -12,11 +12,11 @@ impl Board {
 		self.len
 	}
 
-	pub fn iter(&self) -> impl Iterator<Item=&u8> {
+	pub fn iter(&self) -> impl Iterator<Item = &u8> {
 		self.data[..self.len].iter()
 	}
 
-	pub fn iter_mut(&mut self) -> impl Iterator<Item=&mut u8> {
+	pub fn iter_mut(&mut self) -> impl Iterator<Item = &mut u8> {
 		self.data[..self.len].iter_mut()
 	}
 
@@ -36,7 +36,6 @@ impl Board {
 				self.data[i] = map[c as usize];
 			}
 		}
-
 	}
 }
 

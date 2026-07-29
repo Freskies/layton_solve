@@ -2,11 +2,11 @@ use crate::frittelle_impilate::frittelle_impilate_solver::FrittelleImpilateSolve
 
 pub mod frittelle_impilate_solver;
 
-pub fn solve1() {
+pub fn solve_1() {
 	solve(3);
 }
 
-pub fn solve2() {
+pub fn solve_2() {
 	solve(4);
 }
 

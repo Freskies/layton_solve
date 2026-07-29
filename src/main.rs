@@ -6,6 +6,7 @@ pub mod il_sogno_di_un_verme;
 pub mod klotski;
 pub mod salto_del_cavallo;
 pub mod troppe_regine;
+pub mod lattine_e_barattoli;
 
 fn main() {
 	let enigma: ENIGMI = ENIGMI::LOraDellePulizie2;
@@ -28,11 +29,12 @@ fn main() {
 		ENIGMI::FuggiPrincipessa2 => klotski::solve_fuggi_principessa_2(),
 		ENIGMI::FuggiPrincipessa3 => klotski::solve_fuggi_principessa_3(),
 		// scrigno di pandora
-		ENIGMI::FrittelleImpilate1 => frittelle_impilate::solve1(),
+		ENIGMI::FrittelleImpilate1 => frittelle_impilate::solve_1(),
 		ENIGMI::ChiETom => klotski::solve_chi_e_tom(),
 		ENIGMI::LOraDellePulizie1 => klotski::solve_l_ora_delle_pulizie_1(),
 		ENIGMI::RitiroBagnagli => klotski::solve_ritiro_bagagli(),
-		ENIGMI::FrittelleImpilate2 => frittelle_impilate::solve2(),
+		ENIGMI::FrittelleImpilate2 => frittelle_impilate::solve_2(),
+		ENIGMI::LattineBarattoli1 => lattine_e_barattoli::solve_1(),
 		ENIGMI::LOraDellePulizie2 => klotski::solve_l_ora_delle_pulizie_2(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
@@ -65,6 +67,7 @@ enum ENIGMI {
 	LOraDellePulizie1,  // 022
 	RitiroBagnagli,     // 045
 	FrittelleImpilate2, // 083
+	LattineBarattoli1,  // 098
 	LOraDellePulizie2,  // 118
 	SaltoDelCavallo1,
 	SaltoDelCavallo2,

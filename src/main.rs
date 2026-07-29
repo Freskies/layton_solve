@@ -9,7 +9,7 @@ pub mod troppe_regine;
 pub mod lattine_e_barattoli;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::LOraDellePulizie2;
+	let enigma: ENIGMI = ENIGMI::LattineBarattoli1;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri

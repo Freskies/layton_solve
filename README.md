@@ -38,7 +38,8 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 015    | [L'Ora delle Pulizie 1](solutions/l_ora_delle_pulizie_1.md) |
 | 022    | [Chi è Tom?](solutions/chi_e_tom.md)                        |
 | 045    | [Ritiro Bagagli](solutions/ritiro_bagagli.md)               |
-| 083    | [Frittelle Impilate 2](solutions/frittelle_impilate_1.md)   |
+| 083    | [Frittelle Impilate 2](solutions/frittelle_impilate_2.md)   |
+| 098    | [Lattine e Barattoli 1](solutions/lattine_e_barattoli_1.md) |
 |        | Salto del Cavallo 1                                         |
 |        | Salto del Cavallo 2                                         |
 |        | Salto del Cavallo 3                                         |

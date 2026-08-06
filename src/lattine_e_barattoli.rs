@@ -7,8 +7,6 @@ use std::ops::RangeInclusive;
 const COUNTER_ITER: RangeInclusive<i32> = 0..=28;
 const GRAB_RELEASE: u32 = 0b101;
 
-pub mod lattine_e_barattoli_solver;
-
 pub fn solve_1() {
 	solve(0b1110111011100101);
 }

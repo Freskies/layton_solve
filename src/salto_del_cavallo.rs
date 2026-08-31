@@ -20,7 +20,7 @@ pub const Y_START: usize = 0;
 fn enigma_size(enigma: &Variant) -> (usize, usize) {
 	match enigma {
 		SaltoDelCavallo1 => (3, 4),
-		SaltoDelCavallo2 => (5, 7),
+		SaltoDelCavallo2 => (5, 6),
 		SaltoDelCavallo3 => (6, 6),
 		SaltoDelCavallo4 => (8, 8),
 	}

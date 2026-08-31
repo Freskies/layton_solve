@@ -2,9 +2,8 @@
 
 This repo contains all the scripts I used to complete all Layton's puzzles.
 
-I already created a Markdown file per solution.
-So there is no need to run the code yourself, but if you're interested in the code,
-feel free to peek at how I solved it.
+I already created a Markdown file per solution. So there is no need to run the code yourself, but if you're interested
+in the code, feel free to peek at how I solved it.
 
 If you can think of a better/faster way to solve the enigma, let me know; I'm dawn to improve in this field.
 
@@ -40,8 +39,8 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 045    | [Ritiro Bagagli](solutions/ritiro_bagagli.md)               |
 | 083    | [Frittelle Impilate 2](solutions/frittelle_impilate_2.md)   |
 | 098    | [Lattine e Barattoli 1](solutions/lattine_e_barattoli_1.md) |
-|        | Salto del Cavallo 1                                         |
-|        | Salto del Cavallo 2                                         |
-|        | Salto del Cavallo 3                                         |
+| 106    | [Salto del Cavallo 1](solutions/salto_del_cavallo_1.md)     |
+| 107    | [Salto del Cavallo 2](solutions/salto_del_cavallo_2.md)     |
+| 108    | [Salto del Cavallo 3](solutions/salto_del_cavallo_3.md)     |
 |        | Salto del Cavallo 4                                         |
 

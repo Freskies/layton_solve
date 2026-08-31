@@ -4,12 +4,13 @@ pub mod dosa_il_liquido;
 pub mod frittelle_impilate;
 pub mod il_sogno_di_un_verme;
 pub mod klotski;
+pub mod lattine_e_barattoli;
+pub mod mangia_la_pallina;
 pub mod salto_del_cavallo;
 pub mod troppe_regine;
-pub mod lattine_e_barattoli;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::LattineBarattoli1;
+	let enigma: ENIGMI = ENIGMI::MangiaLaPallina1;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -35,11 +36,13 @@ fn main() {
 		ENIGMI::RitiroBagnagli => klotski::solve_ritiro_bagagli(),
 		ENIGMI::FrittelleImpilate2 => frittelle_impilate::solve_2(),
 		ENIGMI::LattineBarattoli1 => lattine_e_barattoli::solve_1(),
-		ENIGMI::LOraDellePulizie2 => klotski::solve_l_ora_delle_pulizie_2(),
+		ENIGMI::MangiaLaPallina1 => mangia_la_pallina::solve_1(),
+		ENIGMI::MangiaLaPallina2 => mangia_la_pallina::solve_2(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
 		ENIGMI::SaltoDelCavallo4 => salto_del_cavallo::solve_4(),
+		ENIGMI::LOraDellePulizie2 => klotski::solve_l_ora_delle_pulizie_2(),
 	}
 }
 
@@ -68,9 +71,11 @@ enum ENIGMI {
 	RitiroBagnagli,     // 045
 	FrittelleImpilate2, // 083
 	LattineBarattoli1,  // 098
+	MangiaLaPallina1,   // 101
+	MangiaLaPallina2,   // 102
+	SaltoDelCavallo1,   // 106
+	SaltoDelCavallo2,   // 107
+	SaltoDelCavallo3,   // 108
 	LOraDellePulizie2,  // 118
-	SaltoDelCavallo1,
-	SaltoDelCavallo2,
-	SaltoDelCavallo3,
 	SaltoDelCavallo4,
 }

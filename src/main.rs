@@ -10,7 +10,7 @@ pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::InvertiLeSfere;
+	let enigma: ENIGMI = ENIGMI::PrendiLaChiave;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -47,6 +47,7 @@ fn main() {
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
 		ENIGMI::SaltoDelCavallo4 => salto_del_cavallo::solve_4(),
 		ENIGMI::LOraDellePulizie2 => klotski::solve_l_ora_delle_pulizie_2(),
+		ENIGMI::PrendiLaChiave => klotski::solve_prendi_la_chiave(),
 	}
 }
 
@@ -84,6 +85,7 @@ enum ENIGMI {
 	SaltoDelCavallo1,   // 106
 	SaltoDelCavallo2,   // 107
 	SaltoDelCavallo3,   // 108
+	SaltoDelCavallo4,   // 109
 	LOraDellePulizie2,  // 118
-	SaltoDelCavallo4,
+	PrendiLaChiave,     // 133
 }

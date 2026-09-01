@@ -48,4 +48,5 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 107    | [Salto del Cavallo 2](solutions/salto_del_cavallo_2.md)     |
 | 108    | [Salto del Cavallo 3](solutions/salto_del_cavallo_3.md)     |
 | 109    | Salto del Cavallo 4                                         |
+| 133    | [Prendi la Chiave](solutions/prendi_la_chiave.md)           |
 

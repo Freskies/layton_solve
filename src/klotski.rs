@@ -576,3 +576,35 @@ pub fn solve_inverti_le_sfere() {
 	let board: Board = board_to_board(board);
 	solve(board, 8, 9, balls, translations);
 }
+
+pub fn solve_prendi_la_chiave() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'1', b'9', b'9'],
+		vec![b'9', b'9', b'1', b'9', b'9'],
+		vec![b'a', b'a', b'0', b'b', b'0'],
+		vec![b'a', b'a', b'0', b'b', b'b'],
+		vec![b'c', b'0', b'9', b'd', b'd'],
+		vec![b'c', b'c', b'e', b'd', b'd'],
+		vec![b'0', b'0', b'e', b'0', b'0'],
+		vec![b'9', b'9', b'0', b'9', b'9'],
+		vec![b'9', b'9', b'0', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Chiave");
+	translations.insert(b'a', "Rosso");
+	translations.insert(b'b', "Verde");
+	translations.insert(b'c', "Verde");
+	translations.insert(b'd', "Rosso");
+	translations.insert(b'e', "Giallo");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(2, 0),
+			victory_slot: Point(2, 7),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 5, 9, balls, translations);
+}

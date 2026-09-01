@@ -1,12 +1,38 @@
 pub fn solve_1() {
-	solve()
+	solve(vec![
+		Point { x: 2, y: 4 },
+		Point { x: 3, y: 2 },
+		Point { x: 3, y: 3 },
+		Point { x: 3, y: 4 },
+		Point { x: 3, y: 5 },
+		Point { x: 4, y: 4 },
+	])
 }
 
 pub fn solve_2() {
-	solve()
+	solve(vec![
+		Point { x: 1, y: 3 },
+		Point { x: 2, y: 3 },
+		Point { x: 3, y: 1 },
+		Point { x: 3, y: 2 },
+		Point { x: 3, y: 3 },
+		Point { x: 3, y: 4 },
+		Point { x: 3, y: 5 },
+		Point { x: 4, y: 3 },
+		Point { x: 5, y: 3 },
+	])
 }
 
-fn solve() {}
+fn solve(balls: Vec<Point>) {
+	let mut solution: Vec<BallMove> = vec![];
+	if dfs(balls, &mut solution) {
+		decode_solution(solution)
+			.iter()
+			.for_each(|step| println!("{step}"))
+	} else {
+		println!("No solutions found.")
+	}
+}
 
 const INVALID_POINTS: [Point; 16] = [
 	// bottom left
@@ -38,6 +64,8 @@ const DIRECTIONS: [(Point, Point); 4] = [
 	(Point { x: -2, y: 0 }, Point { x: -1, y: 0 }),
 ];
 
+const ARROWS: [char; 9] = ['↙', '↓', '↘', '←', '•', '→', '↖', '↑', '↗'];
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 struct Point {
 	x: i8,
@@ -62,7 +90,7 @@ impl Point {
 		}
 	}
 
-	fn possible_moves(&self, points: Vec<Point>) -> Vec<BallMove> {
+	fn possible_moves(&self, points: &Vec<Point>) -> Vec<BallMove> {
 		let mut possible_moves = Vec::new();
 		for direction in DIRECTIONS {
 			let ball_move: BallMove = BallMove {
@@ -79,4 +107,86 @@ impl Point {
 		}
 		possible_moves
 	}
+
+	fn decode(&self) -> String {
+		let mut str: String = "".to_string();
+		let mut x = self.x;
+		let mut y = self.y;
+
+		str.push(if self.x <= 1 {
+			x += 2;
+			'←'
+		} else if self.x >= 5 {
+			x -= 2;
+			'→'
+		} else if self.y <= 1 {
+			y += 2;
+			'↓'
+		} else if self.y >= 5 {
+			y -= 2;
+			'↑'
+		} else {
+			'•'
+		});
+
+		x -= 2;
+		y -= 2;
+
+		str.push(ARROWS[(y * 3 + x) as usize]);
+
+		str
+	}
+}
+
+impl BallMove {
+	fn decode_direction(&self) -> char {
+		if self.start.x > self.end.x {
+			'←'
+		} else if self.start.x < self.end.x {
+			'→'
+		} else if self.start.y > self.end.y {
+			'↓'
+		} else {
+			'↑'
+		}
+	}
+}
+
+fn do_move(balls: &mut Vec<Point>, ball_move: &BallMove) {
+	balls.remove(balls.iter().position(|&p| p == ball_move.start).unwrap());
+	balls.remove(balls.iter().position(|&p| p == ball_move.mid).unwrap());
+	balls.push(ball_move.end);
+}
+
+fn undo_move(balls: &mut Vec<Point>, ball_move: &BallMove) {
+	balls.remove(balls.iter().position(|&p| p == ball_move.end).unwrap());
+	balls.push(ball_move.start);
+	balls.push(ball_move.mid);
+}
+
+fn dfs(mut balls: Vec<Point>, solution: &mut Vec<BallMove>) -> bool {
+	if balls.len() == 1 {
+		return true;
+	}
+
+	for ball in balls.clone() {
+		for ball_move in ball.possible_moves(&balls.clone()) {
+			do_move(&mut balls, &ball_move);
+			if dfs(balls.clone(), solution) {
+				solution.push(ball_move);
+				return true;
+			}
+			undo_move(&mut balls, &ball_move)
+		}
+	}
+
+	false
+}
+
+fn decode_solution(mut solution: Vec<BallMove>) -> Vec<String> {
+	solution.reverse();
+	solution
+		.iter()
+		.map(|step| format!("{} {}", step.start.decode(), step.decode_direction()))
+		.collect()
 }

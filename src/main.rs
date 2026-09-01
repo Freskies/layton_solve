@@ -10,7 +10,7 @@ pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::MangiaLaPallina1;
+	let enigma: ENIGMI = ENIGMI::MangiaLaPallina2;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri

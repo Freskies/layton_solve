@@ -39,6 +39,8 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 045    | [Ritiro Bagagli](solutions/ritiro_bagagli.md)               |
 | 083    | [Frittelle Impilate 2](solutions/frittelle_impilate_2.md)   |
 | 098    | [Lattine e Barattoli 1](solutions/lattine_e_barattoli_1.md) |
+| 101    | [Mangia la Pallina 1](solutions/mangia_la_pallina_1.md)     |
+| 102    | [Mangia la Pallina 2](solutions/mangia_la_pallina_2.md)     |
 | 106    | [Salto del Cavallo 1](solutions/salto_del_cavallo_1.md)     |
 | 107    | [Salto del Cavallo 2](solutions/salto_del_cavallo_2.md)     |
 | 108    | [Salto del Cavallo 3](solutions/salto_del_cavallo_3.md)     |

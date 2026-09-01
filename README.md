@@ -37,12 +37,15 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 015    | [L'Ora delle Pulizie 1](solutions/l_ora_delle_pulizie_1.md) |
 | 022    | [Chi è Tom?](solutions/chi_e_tom.md)                        |
 | 045    | [Ritiro Bagagli](solutions/ritiro_bagagli.md)               |
+| 080    | [Inverti le Sfere](solutions/inverti_le_sfere.md)           |
 | 083    | [Frittelle Impilate 2](solutions/frittelle_impilate_2.md)   |
 | 098    | [Lattine e Barattoli 1](solutions/lattine_e_barattoli_1.md) |
 | 101    | [Mangia la Pallina 1](solutions/mangia_la_pallina_1.md)     |
 | 102    | [Mangia la Pallina 2](solutions/mangia_la_pallina_2.md)     |
+| 103    | Mangia la Pallina 3                                         |
+| 104    | [Mangia la Pallina 4](solutions/mangia_la_pallina_4.md)     |
 | 106    | [Salto del Cavallo 1](solutions/salto_del_cavallo_1.md)     |
 | 107    | [Salto del Cavallo 2](solutions/salto_del_cavallo_2.md)     |
 | 108    | [Salto del Cavallo 3](solutions/salto_del_cavallo_3.md)     |
-|        | Salto del Cavallo 4                                         |
+| 109    | Salto del Cavallo 4                                         |
 

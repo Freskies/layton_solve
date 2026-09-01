@@ -23,6 +23,26 @@ pub fn solve_2() {
 	])
 }
 
+pub fn solve_3() {
+	solve(vec![])
+}
+
+pub fn solve_4() {
+	solve(vec![
+		Point { x: 2, y: 0 },
+		Point { x: 2, y: 1 },
+		Point { x: 2, y: 2 },
+		Point { x: 2, y: 3 },
+		Point { x: 3, y: 0 },
+		Point { x: 3, y: 1 },
+		Point { x: 3, y: 2 },
+		Point { x: 4, y: 0 },
+		Point { x: 4, y: 1 },
+		Point { x: 4, y: 2 },
+		Point { x: 4, y: 3 },
+	])
+}
+
 fn solve(balls: Vec<Point>) {
 	let mut solution: Vec<BallMove> = vec![];
 	if dfs(balls, &mut solution) {
@@ -98,7 +118,7 @@ impl Point {
 				mid: self.add(&direction.1),
 				end: self.add(&direction.0),
 			};
-			if ball_move.start.is_valid()
+			if ball_move.end.is_valid()
 				&& !points.contains(&ball_move.end)
 				&& points.contains(&ball_move.mid)
 			{

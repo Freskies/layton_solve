@@ -39,12 +39,12 @@ fn solve(
 }
 
 fn board_to_board(grid: Grid) -> Board {
-	let mut data = [0; 64];
+	let mut data = [0; 72];
 	let mut len = 0;
 
 	for row in grid {
 		for col in row {
-			if len < 64 {
+			if len < 72 {
 				data[len] = col;
 				len += 1;
 			}
@@ -536,4 +536,43 @@ pub fn solve_ritiro_bagagli() {
 
 	let board: Board = board_to_board(board);
 	solve(board, 5, 5, balls, translations);
+}
+
+pub fn solve_inverti_le_sfere() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'9', b'1', b'1', b'9', b'9', b'9'],
+		vec![b'9', b'9', b'9', b'1', b'1', b'9', b'9', b'9'],
+		vec![b'0', b'0', b'0', b'a', b'0', b'0', b'0', b'0'],
+		vec![b'b', b'b', b'a', b'a', b'c', b'c', b'0', b'0'],
+		vec![b'b', b'b', b'9', b'd', b'c', b'9', b'e', b'e'],
+		vec![b'0', b'0', b'd', b'd', b'f', b'f', b'e', b'e'],
+		vec![b'0', b'0', b'0', b'0', b'f', b'0', b'0', b'0'],
+		vec![b'9', b'9', b'9', b'2', b'2', b'9', b'9', b'9'],
+		vec![b'9', b'9', b'9', b'2', b'2', b'9', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Sfera Rossa");
+	translations.insert(b'2', "Sfera Blu");
+	translations.insert(b'a', "Verde");
+	translations.insert(b'b', "Rosa");
+	translations.insert(b'c', "Azzurro");
+	translations.insert(b'd', "Verde");
+	translations.insert(b'e', "Rosa");
+	translations.insert(b'f', "Azzurro");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(3, 0),
+			victory_slot: Point(3, 7),
+		},
+		Vip {
+			id: b'2',
+			position: Point(3, 7),
+			victory_slot: Point(3, 0),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 8, 9, balls, translations);
 }

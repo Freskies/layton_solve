@@ -3,7 +3,7 @@ use std::ops::{Index, IndexMut};
 
 #[derive(Clone, Eq, PartialEq, Hash, Debug)]
 pub struct Board {
-	pub data: [u8; 64],
+	pub data: [u8; 72],
 	pub len: usize,
 }
 

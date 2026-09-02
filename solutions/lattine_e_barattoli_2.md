@@ -6,8 +6,7 @@ Partendo da destra ogni intersezione tra 2 posti è l'indice scritto.
 
 | # | Da | A |
 |---|:---|:--|
-| 1 | 3  | 1 |
-| 2 | 6  | 3 |
-| 3 | 1  | 6 |
-| 4 | 7  | 1 |
-
+| 1 | 8  | 1 |
+| 2 | 5  | 8 |
+| 3 | 2  | 5 |
+| 4 | 9  | 2 |

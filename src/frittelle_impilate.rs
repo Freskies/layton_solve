@@ -10,6 +10,7 @@ pub fn solve_2() { solve(4); }
 
 pub fn solve_3() { solve(5); }
 
+pub fn solve_s() { solve(7); }
 
 fn solve(num_frittelle: u8) {
 	let mut solver = FrittelleImpilateSolver::init(num_frittelle);

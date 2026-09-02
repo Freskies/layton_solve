@@ -10,7 +10,7 @@ pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::PrendiLaChiave;
+	let enigma: ENIGMI = ENIGMI::SuperFrittelle;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -38,16 +38,20 @@ fn main() {
 		ENIGMI::FrittelleImpilate2 => frittelle_impilate::solve_2(),
 		ENIGMI::FrittelleImpilate3 => frittelle_impilate::solve_3(),
 		ENIGMI::LattineBarattoli1 => lattine_e_barattoli::solve_1(),
+		ENIGMI::LattineBarattoli2 => lattine_e_barattoli::solve_2(),
 		ENIGMI::MangiaLaPallina1 => mangia_la_pallina::solve_1(),
 		ENIGMI::MangiaLaPallina2 => mangia_la_pallina::solve_2(),
 		ENIGMI::MangiaLaPallina3 => mangia_la_pallina::solve_3(),
 		ENIGMI::MangiaLaPallina4 => mangia_la_pallina::solve_4(),
+		ENIGMI::MangiaLaPallina5 => mangia_la_pallina::solve_5(),
 		ENIGMI::SaltoDelCavallo1 => salto_del_cavallo::solve_1(),
 		ENIGMI::SaltoDelCavallo2 => salto_del_cavallo::solve_2(),
 		ENIGMI::SaltoDelCavallo3 => salto_del_cavallo::solve_3(),
 		ENIGMI::SaltoDelCavallo4 => salto_del_cavallo::solve_4(),
 		ENIGMI::LOraDellePulizie2 => klotski::solve_l_ora_delle_pulizie_2(),
 		ENIGMI::PrendiLaChiave => klotski::solve_prendi_la_chiave(),
+		ENIGMI::MangiaLaPallina6 => mangia_la_pallina::solve_6(),
+		ENIGMI::SuperFrittelle => frittelle_impilate::solve_s(),
 	}
 }
 
@@ -78,14 +82,18 @@ enum ENIGMI {
 	FrittelleImpilate2, // 083
 	FrittelleImpilate3, // 084
 	LattineBarattoli1,  // 098
+	LattineBarattoli2,  // 099
 	MangiaLaPallina1,   // 101
 	MangiaLaPallina2,   // 102
 	MangiaLaPallina3,   // 103
 	MangiaLaPallina4,   // 104
+	MangiaLaPallina5,   // 105
 	SaltoDelCavallo1,   // 106
 	SaltoDelCavallo2,   // 107
 	SaltoDelCavallo3,   // 108
 	SaltoDelCavallo4,   // 109
 	LOraDellePulizie2,  // 118
 	PrendiLaChiave,     // 133
+	MangiaLaPallina6,   // 141
+	SuperFrittelle,     // 144
 }

@@ -24,7 +24,24 @@ pub fn solve_2() {
 }
 
 pub fn solve_3() {
-	solve(vec![])
+	solve(vec![
+		Point { x: 0, y: 2 },
+		Point { x: 1, y: 2 },
+		Point { x: 1, y: 3 },
+		Point { x: 2, y: 2 },
+		Point { x: 2, y: 3 },
+		Point { x: 2, y: 4 },
+		Point { x: 3, y: 2 },
+		Point { x: 3, y: 3 },
+		Point { x: 3, y: 4 },
+		Point { x: 3, y: 5 },
+		Point { x: 4, y: 2 },
+		Point { x: 4, y: 3 },
+		Point { x: 4, y: 4 },
+		Point { x: 5, y: 2 },
+		Point { x: 5, y: 3 },
+		Point { x: 6, y: 2 },
+	])
 }
 
 pub fn solve_4() {
@@ -42,6 +59,73 @@ pub fn solve_4() {
 		Point { x: 4, y: 3 },
 	])
 }
+
+pub fn solve_5() {
+	solve(vec![
+		Point { x: 0, y: 3 },
+		Point { x: 1, y: 2 },
+		Point { x: 1, y: 3 },
+		Point { x: 1, y: 4 },
+		Point { x: 2, y: 1 },
+		Point { x: 2, y: 2 },
+		Point { x: 2, y: 3 },
+		Point { x: 2, y: 4 },
+		Point { x: 2, y: 5 },
+		Point { x: 3, y: 0 },
+		Point { x: 3, y: 1 },
+		Point { x: 3, y: 2 },
+		Point { x: 3, y: 4 },
+		Point { x: 3, y: 5 },
+		Point { x: 3, y: 6 },
+		Point { x: 4, y: 1 },
+		Point { x: 4, y: 2 },
+		Point { x: 4, y: 3 },
+		Point { x: 4, y: 4 },
+		Point { x: 4, y: 5 },
+		Point { x: 5, y: 2 },
+		Point { x: 5, y: 3 },
+		Point { x: 5, y: 4 },
+		Point { x: 6, y: 3 },
+	])
+}
+
+pub fn solve_6() {
+	solve(vec![
+		Point { x: 0, y: 2 },
+		Point { x: 0, y: 3 },
+		Point { x: 0, y: 4 },
+		Point { x: 1, y: 2 },
+		Point { x: 1, y: 3 },
+		Point { x: 1, y: 4 },
+		Point { x: 2, y: 0 },
+		Point { x: 2, y: 1 },
+		Point { x: 2, y: 2 },
+		Point { x: 2, y: 3 },
+		Point { x: 2, y: 4 },
+		Point { x: 2, y: 5 },
+		Point { x: 2, y: 6 },
+		Point { x: 3, y: 0 },
+		Point { x: 3, y: 1 },
+		Point { x: 3, y: 2 },
+		Point { x: 3, y: 4 },
+		Point { x: 3, y: 5 },
+		Point { x: 3, y: 6 },
+		Point { x: 4, y: 0 },
+		Point { x: 4, y: 1 },
+		Point { x: 4, y: 2 },
+		Point { x: 4, y: 3 },
+		Point { x: 4, y: 4 },
+		Point { x: 4, y: 5 },
+		Point { x: 4, y: 6 },
+		Point { x: 5, y: 2 },
+		Point { x: 5, y: 3 },
+		Point { x: 5, y: 4 },
+		Point { x: 6, y: 2 },
+		Point { x: 6, y: 3 },
+		Point { x: 6, y: 4 },
+	])
+}
+
 
 fn solve(balls: Vec<Point>) {
 	let mut solution: Vec<BallMove> = vec![];
@@ -100,7 +184,7 @@ struct BallMove {
 
 impl Point {
 	fn is_valid(&self) -> bool {
-		(0..6).contains(&self.x) && (0..6).contains(&self.y) && !INVALID_POINTS.contains(&self)
+		(0..=6).contains(&self.x) && (0..=6).contains(&self.y) && !INVALID_POINTS.contains(&self)
 	}
 
 	fn add(&self, other: &Point) -> Point {
@@ -186,7 +270,8 @@ fn undo_move(balls: &mut Vec<Point>, ball_move: &BallMove) {
 
 fn dfs(mut balls: Vec<Point>, solution: &mut Vec<BallMove>) -> bool {
 	if balls.len() == 1 {
-		return true;
+		let ball = balls.get(0).unwrap();
+		return ball.x == 3 && ball.y == 3;
 	}
 
 	for ball in balls.clone() {

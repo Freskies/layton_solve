@@ -11,6 +11,10 @@ pub fn solve_1() {
 	solve(0b1110111011100101);
 }
 
+pub fn solve_2() {
+	solve(0b11101110111011100101);
+}
+
 fn solve(counter: Counter) {
 	let counter = counter + 0b01000000000000000000000000000000;
 	let num_can_jar = count_can_jar(&counter);

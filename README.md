@@ -31,26 +31,30 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 
 ## Scrigno di Pandora
 
-| Numero | Nome Enigma                                                 |
-|:-------|:------------------------------------------------------------|
-| 006    | [Frittelle Impilate 1](solutions/frittelle_impilate_1.md)   |
-| 015    | [L'Ora delle Pulizie 1](solutions/l_ora_delle_pulizie_1.md) |
-| 022    | [Chi è Tom?](solutions/chi_e_tom.md)                        |
-| 045    | [Ritiro Bagagli](solutions/ritiro_bagagli.md)               |
-| 080    | [Inverti le Sfere](solutions/inverti_le_sfere.md)           |
-| 083    | [Frittelle Impilate 2](solutions/frittelle_impilate_2.md)   |
-| 084    | [Frittelle Impilate 3](solutions/frittelle_impilate_2.md)   |
-| 098    | [Lattine e Barattoli 1](solutions/lattine_e_barattoli_1.md) |
-| 101    | [Mangia la Pallina 1](solutions/mangia_la_pallina_1.md)     |
-| 102    | [Mangia la Pallina 2](solutions/mangia_la_pallina_2.md)     |
-| 103    | [Mangia la Pallina 3](solutions/mangia_la_pallina_3.md)     |
-| 104    | [Mangia la Pallina 4](solutions/mangia_la_pallina_4.md)     |
-| 105    | [Mangia la Pallina 5](solutions/mangia_la_pallina_5.md)     |
-| 106    | [Salto del Cavallo 1](solutions/salto_del_cavallo_1.md)     |
-| 107    | [Salto del Cavallo 2](solutions/salto_del_cavallo_2.md)     |
-| 108    | [Salto del Cavallo 3](solutions/salto_del_cavallo_3.md)     |
-| 133    | [Prendi la Chiave](solutions/prendi_la_chiave.md)           |
-| 141    | [Mangia la Pallina 6](solutions/mangia_la_pallina_6.md)     |
-| xxx    | Salto del Cavallo 4                                         |
-| 083    | [Superfrittelle](solutions/frittelle_impilate_2.md)         |
+| Numero | Nome Enigma                                                       |
+|:-------|:------------------------------------------------------------------|
+| 006    | [Frittelle Impilate 1](solutions/frittelle_impilate_1.md)         |
+| 015    | [L'Ora delle Pulizie 1](solutions/l_ora_delle_pulizie_1.md)       |
+| 022    | [Chi è Tom?](solutions/chi_e_tom.md)                              |
+| 045    | [Ritiro Bagagli](solutions/ritiro_bagagli.md)                     |
+| 080    | [Inverti le Sfere](solutions/inverti_le_sfere.md)                 |
+| 083    | [Frittelle Impilate 2](solutions/frittelle_impilate_2.md)         |
+| 084    | [Frittelle Impilate 3](solutions/frittelle_impilate_2.md)         |
+| 098    | [Lattine e Barattoli 1](solutions/lattine_e_barattoli_1.md)       |
+| 099    | [Lattine e Barattoli 2](solutions/lattine_e_barattoli_2.md)       |
+| 101    | [Mangia la Pallina 1](solutions/mangia_la_pallina_1.md)           |
+| 102    | [Mangia la Pallina 2](solutions/mangia_la_pallina_2.md)           |
+| 103    | [Mangia la Pallina 3](solutions/mangia_la_pallina_3.md)           |
+| 104    | [Mangia la Pallina 4](solutions/mangia_la_pallina_4.md)           |
+| 105    | [Mangia la Pallina 5](solutions/mangia_la_pallina_5.md)           |
+| 106    | [Salto del Cavallo 1](solutions/salto_del_cavallo_1.md)           |
+| 107    | [Salto del Cavallo 2](solutions/salto_del_cavallo_2.md)           |
+| 108    | [Salto del Cavallo 3](solutions/salto_del_cavallo_3.md)           |
+| 133    | [Prendi la Chiave](solutions/prendi_la_chiave.md)                 |
+| 141    | [Mangia la Pallina 6](solutions/mangia_la_pallina_6.md)           |
+| 144    | [Superfrittelle](solutions/superfrittelle.md)                     |
+| 147    | [Il Labirinto di Tasselli](solutions/il_labirinto_di_tasselli.md) |
+| 148    | [8 Carte](solutions/otto_carte.md)                                |
+| 150    | [Salto del Cavallo 4](solutions/salto_del_cavallo_4.md)           |
+| 153    | [La Sfera Bloccata](solutions/la_sfera_bloccata.md)               |
 

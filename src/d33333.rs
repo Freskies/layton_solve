@@ -19,7 +19,7 @@ pub fn solve() {
 		}
 
 		if num_set.len() == 9 {
-			println!("{} {}", i, num)
+			println!("{i} {num}")
 		}
 	}
 }

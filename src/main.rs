@@ -6,11 +6,12 @@ pub mod il_sogno_di_un_verme;
 pub mod klotski;
 pub mod lattine_e_barattoli;
 pub mod mangia_la_pallina;
+pub mod otto_carte;
 pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::SuperFrittelle;
+	let enigma: ENIGMI = ENIGMI::LaSferaBloccata;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -52,6 +53,9 @@ fn main() {
 		ENIGMI::PrendiLaChiave => klotski::solve_prendi_la_chiave(),
 		ENIGMI::MangiaLaPallina6 => mangia_la_pallina::solve_6(),
 		ENIGMI::SuperFrittelle => frittelle_impilate::solve_s(),
+		ENIGMI::IlLabirintoDiTasselli => il_sogno_di_un_verme::solve_labirinto_a_tasselli(),
+		ENIGMI::OttoCarte => otto_carte::solve(),
+		ENIGMI::LaSferaBloccata => klotski::solve_la_sfera_bloccata(),
 	}
 }
 
@@ -74,26 +78,29 @@ enum ENIGMI {
 	FuggiPrincipessa2, // 132
 	FuggiPrincipessa3, // 135
 	// -- scrigno di pandora --
-	FrittelleImpilate1, // 006
-	ChiETom,            // 015
-	LOraDellePulizie1,  // 022
-	RitiroBagnagli,     // 045
-	InvertiLeSfere,     // 080
-	FrittelleImpilate2, // 083
-	FrittelleImpilate3, // 084
-	LattineBarattoli1,  // 098
-	LattineBarattoli2,  // 099
-	MangiaLaPallina1,   // 101
-	MangiaLaPallina2,   // 102
-	MangiaLaPallina3,   // 103
-	MangiaLaPallina4,   // 104
-	MangiaLaPallina5,   // 105
-	SaltoDelCavallo1,   // 106
-	SaltoDelCavallo2,   // 107
-	SaltoDelCavallo3,   // 108
-	SaltoDelCavallo4,   // 109
-	LOraDellePulizie2,  // 118
-	PrendiLaChiave,     // 133
-	MangiaLaPallina6,   // 141
-	SuperFrittelle,     // 144
+	FrittelleImpilate1,    // 006
+	ChiETom,               // 015
+	LOraDellePulizie1,     // 022
+	RitiroBagnagli,        // 045
+	InvertiLeSfere,        // 080
+	FrittelleImpilate2,    // 083
+	FrittelleImpilate3,    // 084
+	LattineBarattoli1,     // 098
+	LattineBarattoli2,     // 099
+	MangiaLaPallina1,      // 101
+	MangiaLaPallina2,      // 102
+	MangiaLaPallina3,      // 103
+	MangiaLaPallina4,      // 104
+	MangiaLaPallina5,      // 105
+	SaltoDelCavallo1,      // 106
+	SaltoDelCavallo2,      // 107
+	SaltoDelCavallo3,      // 108
+	SaltoDelCavallo4,      // 109
+	LOraDellePulizie2,     // 118
+	PrendiLaChiave,        // 133
+	MangiaLaPallina6,      // 141
+	SuperFrittelle,        // 144
+	IlLabirintoDiTasselli, // 147
+	OttoCarte,             // 148
+	LaSferaBloccata,       // 153
 }

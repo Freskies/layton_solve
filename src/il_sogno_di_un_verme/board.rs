@@ -12,19 +12,10 @@ pub struct Board {
 }
 
 impl Board {
-	pub fn init() -> Self {
-		let mut board = [[None; 3]; 3];
-		board[0][0] = Some(Mela::init(9));
-		board[0][1] = Some(Mela::init(2));
-		board[0][2] = Some(Mela::init(3));
-		board[1][0] = Some(Mela::init(4));
-		board[1][1] = Some(Mela::init(8));
-		board[1][2] = Some(Mela::init(7));
-		board[2][0] = Some(Mela::init(6));
-		board[2][2] = Some(Mela::init(1));
+	pub fn init(board: [[Option<Mela>; 3]; 3], empty_pos: Point) -> Self {
 		Self {
 			board,
-			empty_pos: Point(2, 1),
+			empty_pos,
 		}
 	}
 

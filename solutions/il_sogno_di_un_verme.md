@@ -1,6 +1,6 @@
 # Il sogno di un verme
 
-[Torna all'elenco](../README.md#paese-dei-misteri)
+[Torna all'elenco](../README.md#scrigno-di-pandora)
 
 Griglia:
 

@@ -608,3 +608,36 @@ pub fn solve_prendi_la_chiave() {
 	let board: Board = board_to_board(board);
 	solve(board, 5, 9, balls, translations);
 }
+
+pub fn solve_la_sfera_bloccata() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'1', b'1', b'9', b'9', b'9'],
+		vec![b'9', b'9', b'1', b'1', b'9', b'9', b'9'],
+		vec![b'9', b'a', b'0', b'0', b'b', b'0', b'9'],
+		vec![b'a', b'a', b'a', b'0', b'b', b'b', b'9'],
+		vec![b'0', b'a', b'0', b'9', b'c', b'c', b'0'],
+		vec![b'0', b'd', b'd', b'e', b'f', b'f', b'9'],
+		vec![b'9', b'0', b'd', b'e', b'f', b'0', b'9'],
+		vec![b'9', b'9', b'0', b'0', b'9', b'9', b'9'],
+		vec![b'9', b'9', b'0', b'0', b'9', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Sfera");
+	translations.insert(b'a', "Rosso");
+	translations.insert(b'b', "Blu");
+	translations.insert(b'c', "Verde");
+	translations.insert(b'd', "Arancione");
+	translations.insert(b'e', "Giallo");
+	translations.insert(b'f', "Azzurro");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(2, 0),
+			victory_slot: Point(2, 7),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 7, 9, balls, translations);
+}

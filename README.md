@@ -58,3 +58,10 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 150    | [Salto del Cavallo 4](solutions/salto_del_cavallo_4.md)           |
 | 153    | [La Sfera Bloccata](solutions/la_sfera_bloccata.md)               |
 
+## Futuro Perduto
+
+| Numero | Nome Enigma                                             |
+|:-------|:--------------------------------------------------------|
+| 038    | [La Borsa Strapiena](solutions/la_borsa_strapiena.md)   |
+| 058    | Caduta Libera                                           |
+| 062    | [Salti Sotto la Luna](solutions/salti_sotto_la_luna.md) |

@@ -7,15 +7,16 @@ pub mod klotski;
 pub mod lattine_e_barattoli;
 pub mod mangia_la_pallina;
 pub mod otto_carte;
+pub mod salti_rana;
 pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::LaSferaBloccata;
+	let enigma: ENIGMI = ENIGMI::RaneSaltellanti;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
-		ENIGMI::AlParcheggio => al_parcheggio::solve(),
+		ENIGMI::AlParcheggio => {}
 		ENIGMI::DosaIlSucco => dosa_il_liquido::solve_succo(),
 		ENIGMI::DosaIlLatte => dosa_il_liquido::solve_latte(),
 		ENIGMI::PallinaFuori1 => klotski::solve_pallina_fuori_1(),
@@ -56,6 +57,11 @@ fn main() {
 		ENIGMI::IlLabirintoDiTasselli => il_sogno_di_un_verme::solve_labirinto_a_tasselli(),
 		ENIGMI::OttoCarte => otto_carte::solve(),
 		ENIGMI::LaSferaBloccata => klotski::solve_la_sfera_bloccata(),
+		// futuro perduto
+		ENIGMI::LaBorsaStrapiena => klotski::solve_la_borsa_strapiena(),
+		ENIGMI::CadutaLibera => {}
+		ENIGMI::RaneSaltellanti => salti_rana::solve_rane_saltellanti(),
+		ENIGMI::SaltiSottoLaLuna => salti_rana::solve_salti_sotto_la_luna(),
 	}
 }
 
@@ -103,4 +109,9 @@ enum ENIGMI {
 	IlLabirintoDiTasselli, // 147
 	OttoCarte,             // 148
 	LaSferaBloccata,       // 153
+	// -- futuro perduto --
+	LaBorsaStrapiena, // 038
+	CadutaLibera,     // 058
+	RaneSaltellanti,  // 059
+	SaltiSottoLaLuna, // 062
 }

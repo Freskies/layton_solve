@@ -12,7 +12,7 @@ pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::RaneSaltellanti;
+	let enigma: ENIGMI = ENIGMI::IlPonteDelDragone;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -62,6 +62,8 @@ fn main() {
 		ENIGMI::CadutaLibera => {}
 		ENIGMI::RaneSaltellanti => salti_rana::solve_rane_saltellanti(),
 		ENIGMI::SaltiSottoLaLuna => salti_rana::solve_salti_sotto_la_luna(),
+		ENIGMI::PassaggioInviolato => klotski::solve_passaggio_inviolato(),
+		ENIGMI::IlPonteDelDragone => klotski::solve_il_ponte_del_dragone(),
 	}
 }
 
@@ -110,8 +112,10 @@ enum ENIGMI {
 	OttoCarte,             // 148
 	LaSferaBloccata,       // 153
 	// -- futuro perduto --
-	LaBorsaStrapiena, // 038
-	CadutaLibera,     // 058
-	RaneSaltellanti,  // 059
-	SaltiSottoLaLuna, // 062
+	LaBorsaStrapiena,   // 038
+	CadutaLibera,       // 058
+	RaneSaltellanti,    // 059
+	SaltiSottoLaLuna,   // 062
+	PassaggioInviolato, // 086
+	IlPonteDelDragone,  // 094
 }

@@ -673,3 +673,78 @@ pub fn solve_la_borsa_strapiena() {
 	let board: Board = board_to_board(board);
 	solve(board, 7, 6, balls, translations);
 }
+
+pub fn solve_passaggio_inviolato() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'0', b'0', b'9', b'9'],
+		vec![b'9', b'9', b'0', b'0', b'9', b'9'],
+		vec![b'0', b'a', b'a', b'b', b'b', b'b'],
+		vec![b'9', b'a', b'c', b'0', b'0', b'9'],
+		vec![b'0', b'c', b'c', b'0', b'0', b'0'],
+		vec![b'd', b'd', b'd', b'e', b'e', b'e'],
+		vec![b'd', b'0', b'1', b'1', b'0', b'e'],
+		vec![b'0', b'0', b'1', b'1', b'0', b'0'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Blocco");
+	translations.insert(b'a', "Arancione");
+	translations.insert(b'b', "Verde");
+	translations.insert(b'c', "Blu");
+	translations.insert(b'd', "Giallo");
+	translations.insert(b'e', "Rosso");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(2, 6),
+			victory_slot: Point(2, 0),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 6, 8, balls, translations);
+}
+
+pub fn solve_il_ponte_del_dragone() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'a', b'a', b'9', b'9'],
+		vec![b'9', b'0', b'a', b'a', b'2', b'9'],
+		vec![b'1', b'0', b'0', b'0', b'2', b'2'],
+		vec![b'1', b'1', b'0', b'0', b'0', b'0'],
+		vec![b'0', b'1', b'3', b'0', b'4', b'4'],
+		vec![b'0', b'3', b'3', b'0', b'4', b'0'],
+		vec![b'9', b'9', b'3', b'0', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Corpo-S");
+	translations.insert(b'2', "Coda");
+	translations.insert(b'3', "Corpo-T");
+	translations.insert(b'4', "Testa");
+	translations.insert(b'a', "Palla");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(0, 2),
+			victory_slot: Point(2, 3),
+		},
+		Vip {
+			id: b'2',
+			position: Point(4, 1),
+			victory_slot: Point(2, 5),
+		},
+		Vip {
+			id: b'3',
+			position: Point(2, 4),
+			victory_slot: Point(3, 1),
+		},
+		Vip {
+			id: b'4',
+			position: Point(4, 4),
+			victory_slot: Point(2, 0),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 6, 7, balls, translations);
+}

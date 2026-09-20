@@ -60,8 +60,12 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 
 ## Futuro Perduto
 
-| Numero | Nome Enigma                                             |
-|:-------|:--------------------------------------------------------|
-| 038    | [La Borsa Strapiena](solutions/la_borsa_strapiena.md)   |
-| 058    | Caduta Libera                                           |
-| 062    | [Salti Sotto la Luna](solutions/salti_sotto_la_luna.md) |
+| Numero | Nome Enigma                                               |
+|:-------|:----------------------------------------------------------|
+| 038    | [La Borsa Strapiena](solutions/la_borsa_strapiena.md)     |
+| 058    | Caduta Libera                                             |
+| 059    | [Rane Saltellanti](solutions/rane_saltellanti.md)         |
+| 062    | [Salti Sotto la Luna](solutions/salti_sotto_la_luna.md)   |
+| 086    | [Passaggio Inviolato](solutions/passaggio_inviolato.md)   |
+| 094    | [Il Ponte del Dragone](solutions/il_ponte_del_dragone.md) |
+

@@ -7,12 +7,13 @@ pub mod klotski;
 pub mod lattine_e_barattoli;
 pub mod mangia_la_pallina;
 pub mod otto_carte;
+pub mod pappagallo;
 pub mod salti_rana;
 pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::IlPonteDelDragone;
+	let enigma: ENIGMI = ENIGMI::Pappagallo;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -64,6 +65,7 @@ fn main() {
 		ENIGMI::SaltiSottoLaLuna => salti_rana::solve_salti_sotto_la_luna(),
 		ENIGMI::PassaggioInviolato => klotski::solve_passaggio_inviolato(),
 		ENIGMI::IlPonteDelDragone => klotski::solve_il_ponte_del_dragone(),
+		ENIGMI::Pappagallo => pappagallo::solve_7(),
 	}
 }
 
@@ -118,4 +120,5 @@ enum ENIGMI {
 	SaltiSottoLaLuna,   // 062
 	PassaggioInviolato, // 086
 	IlPonteDelDragone,  // 094
+	Pappagallo,
 }

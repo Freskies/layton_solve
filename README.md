@@ -68,4 +68,6 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 062    | [Salti Sotto la Luna](solutions/salti_sotto_la_luna.md)   |
 | 086    | [Passaggio Inviolato](solutions/passaggio_inviolato.md)   |
 | 094    | [Il Ponte del Dragone](solutions/il_ponte_del_dragone.md) |
+| 109    | Blocchi su Blocchi                                        |
+| 110    | Il Gioco degli Zeri                                       |
 

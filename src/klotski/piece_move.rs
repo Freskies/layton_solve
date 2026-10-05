@@ -15,10 +15,10 @@ pub const DIRECTIONS: [LegalMove; 4] = [
 impl Display for LegalMove {
 	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
 		let direction = match self {
-			LegalMove::UP => "su",
-			LegalMove::RIGHT => "destra",
-			LegalMove::DOWN => "giù",
-			LegalMove::LEFT => "sinistra",
+			LegalMove::UP => "⭡",
+			LegalMove::RIGHT => "⭢",
+			LegalMove::DOWN => "⭣",
+			LegalMove::LEFT => "⭠",
 		};
 
 		f.write_str(direction)

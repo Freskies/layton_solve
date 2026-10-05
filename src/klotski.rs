@@ -55,15 +55,13 @@ fn board_to_board(grid: Grid) -> Board {
 }
 
 fn print_solution(solution: &Vec<PieceMove>, translations: HashMap<u8, &str>) {
-	for piece_move in solution {
-		println!();
-		print!(
-			"{}",
-			translations.get(&piece_move.piece).unwrap().to_string()
+	for (i, piece_move) in solution.iter().enumerate() {
+		println!(
+			"|{}|{}|{}|",
+			i + 1,
+			translations.get(&piece_move.piece).unwrap().to_string(),
+			piece_move.moves.iter().map(ToString::to_string).collect::<Vec<_>>().join(" ")
 		);
-		for legal_move in &piece_move.moves {
-			print!(" {}", legal_move);
-		}
 	}
 }
 
@@ -747,4 +745,74 @@ pub fn solve_il_ponte_del_dragone() {
 
 	let board: Board = board_to_board(board);
 	solve(board, 6, 7, balls, translations);
+}
+
+pub fn solve_dieci_mosse() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'1', b'9'],
+		vec![b'a', b'a', b'0', b'9'],
+		vec![b'0', b'b', b'b', b'0'],
+		vec![b'0', b'c', b'c', b'0'],
+		vec![b'9', b'0', b'd', b'd'],
+		vec![b'9', b'2', b'9', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "A");
+	translations.insert(b'2', "B");
+	translations.insert(b'a', "Oro");
+	translations.insert(b'b', "Oro");
+	translations.insert(b'c', "Oro");
+	translations.insert(b'd', "Oro");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(2, 0),
+			victory_slot: Point(1, 5),
+		},
+		Vip {
+			id: b'2',
+			position: Point(1, 5),
+			victory_slot: Point(2, 0),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 4, 6, balls, translations);
+}
+
+pub fn solve_lo_scrigno_degli_elisi_riaperto() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'9', b'0', b'9', b'9', b'9'],
+		vec![b'9', b'a', b'a', b'a', b'0', b'0', b'9'],
+		vec![b'0', b'a', b'b', b'a', b'0', b'c', b'c'],
+		vec![b'0', b'0', b'b', b'd', b'd', b'd', b'c'],
+		vec![b'e', b'e', b'b', b'1', b'f', b'c', b'c'],
+		vec![b'e', b'g', b'g', b'g', b'f', b'h', b'0'],
+		vec![b'i', b'i', b'0', b'j', b'f', b'h', b'0'],
+		vec![b'9', b'0', b'0', b'j', b'h', b'h', b'9'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Diamante");
+	translations.insert(b'a', "Oro-5");
+	translations.insert(b'b', "Rubino-3");
+	translations.insert(b'c', "Ametista-5");
+	translations.insert(b'd', "Lapis-3");
+	translations.insert(b'e', "Lapis-3L");
+	translations.insert(b'f', "Oro-3");
+	translations.insert(b'g', "Ametista-3");
+	translations.insert(b'h', "Rubino-4");
+	translations.insert(b'i', "Lapis-2");
+	translations.insert(b'j', "Rubino-2");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(3, 4),
+			victory_slot: Point(3, 0),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 7, 8, balls, translations);
 }

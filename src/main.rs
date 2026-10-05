@@ -13,7 +13,7 @@ pub mod salto_del_cavallo;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::Pappagallo;
+	let enigma: ENIGMI = ENIGMI::LoScrignoDegliElisiRiaperto;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -65,7 +65,9 @@ fn main() {
 		ENIGMI::SaltiSottoLaLuna => salti_rana::solve_salti_sotto_la_luna(),
 		ENIGMI::PassaggioInviolato => klotski::solve_passaggio_inviolato(),
 		ENIGMI::IlPonteDelDragone => klotski::solve_il_ponte_del_dragone(),
-		ENIGMI::Pappagallo => pappagallo::solve_7(),
+		ENIGMI::DieciMosse => klotski::solve_dieci_mosse(),
+		ENIGMI::Pappagallo => pappagallo::solve_10(),
+		ENIGMI::LoScrignoDegliElisiRiaperto => klotski::solve_lo_scrigno_degli_elisi_riaperto()
 	}
 }
 
@@ -120,5 +122,7 @@ enum ENIGMI {
 	SaltiSottoLaLuna,   // 062
 	PassaggioInviolato, // 086
 	IlPonteDelDragone,  // 094
+	DieciMosse,         // 126
 	Pappagallo,
+	LoScrignoDegliElisiRiaperto,
 }

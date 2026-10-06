@@ -816,3 +816,34 @@ pub fn solve_lo_scrigno_degli_elisi_riaperto() {
 	let board: Board = board_to_board(board);
 	solve(board, 7, 8, balls, translations);
 }
+
+pub fn solve_passaggio_inviolato_2() {
+	let board: Grid = vec![
+		vec![b'9', b'9', b'0', b'0', b'9', b'9'],
+		vec![b'9', b'9', b'0', b'0', b'9', b'9'],
+		vec![b'a', b'a', b'a', b'b', b'c', b'c'],
+		vec![b'9', b'0', b'b', b'b', b'c', b'9'],
+		vec![b'0', b'0', b'0', b'0', b'0', b'0'],
+		vec![b'd', b'd', b'd', b'e', b'e', b'e'],
+		vec![b'd', b'0', b'1', b'1', b'0', b'e'],
+		vec![b'0', b'0', b'1', b'1', b'0', b'0'],
+	];
+
+	let mut translations: HashMap<u8, &str> = HashMap::new();
+	translations.insert(b'1', "Blocco");
+	translations.insert(b'a', "Verde");
+	translations.insert(b'b', "Blu");
+	translations.insert(b'c', "Arancione");
+	translations.insert(b'd', "Giallo");
+	translations.insert(b'e', "Rosso");
+	let balls: Vec<Vip> = vec![
+		Vip {
+			id: b'1',
+			position: Point(2, 6),
+			victory_slot: Point(2, 0),
+		},
+	];
+
+	let board: Board = board_to_board(board);
+	solve(board, 6, 8, balls, translations);
+}

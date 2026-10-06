@@ -71,6 +71,10 @@ The whole guide is in Italian because, surprise of surprise, I'm Italian. Yay.
 | 109    | Blocchi su Blocchi                                                              |
 | 110    | Il Gioco degli Zeri                                                             |
 | 126    | [Dieci Mosse](solutions/dieci_mosse.md)                                         |
+| 155    | [Scorte Alla Rinfusa](solutions/scorte_alla_rinfusa_1.md)                       |
+| 155    | I Tre Blocchi                                                                   |
+| 159    | [Passaggio Inviolato 2](solutions/passaggio_inviolato_2.md)                     |
+| 162    | [Scorte Alla Rinfusa 2](solutions/scorte_alla_rinfusa_2.md)                     |
 | /      | Helper Pappagallo (da runnare in locale)                                        |
 | /      | [Lo Scrigno Degli Elisi Riaperto](solutions/lo_scrigno_degli_elisi_riaperto.md) |
 

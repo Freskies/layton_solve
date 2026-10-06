@@ -10,10 +10,11 @@ pub mod otto_carte;
 pub mod pappagallo;
 pub mod salti_rana;
 pub mod salto_del_cavallo;
+pub mod scorte_alla_rinfusa;
 pub mod troppe_regine;
 
 fn main() {
-	let enigma: ENIGMI = ENIGMI::LoScrignoDegliElisiRiaperto;
+	let enigma: ENIGMI = ENIGMI::ScorteAllaRinfusa2;
 	println!("Start solving...");
 	match enigma {
 		// paese dei misteri
@@ -66,8 +67,11 @@ fn main() {
 		ENIGMI::PassaggioInviolato => klotski::solve_passaggio_inviolato(),
 		ENIGMI::IlPonteDelDragone => klotski::solve_il_ponte_del_dragone(),
 		ENIGMI::DieciMosse => klotski::solve_dieci_mosse(),
+		ENIGMI::ScorteAllaRinfusa1 => scorte_alla_rinfusa::solve_1(),
+		ENIGMI::PassaggioInviolato2 => klotski::solve_passaggio_inviolato_2(),
+		ENIGMI::ScorteAllaRinfusa2 => scorte_alla_rinfusa::solve_2(),
 		ENIGMI::Pappagallo => pappagallo::solve_10(),
-		ENIGMI::LoScrignoDegliElisiRiaperto => klotski::solve_lo_scrigno_degli_elisi_riaperto()
+		ENIGMI::LoScrignoDegliElisiRiaperto => klotski::solve_lo_scrigno_degli_elisi_riaperto(),
 	}
 }
 
@@ -116,13 +120,16 @@ enum ENIGMI {
 	OttoCarte,             // 148
 	LaSferaBloccata,       // 153
 	// -- futuro perduto --
-	LaBorsaStrapiena,   // 038
-	CadutaLibera,       // 058
-	RaneSaltellanti,    // 059
-	SaltiSottoLaLuna,   // 062
-	PassaggioInviolato, // 086
-	IlPonteDelDragone,  // 094
-	DieciMosse,         // 126
+	LaBorsaStrapiena,    // 038
+	CadutaLibera,        // 058
+	RaneSaltellanti,     // 059
+	SaltiSottoLaLuna,    // 062
+	PassaggioInviolato,  // 086
+	IlPonteDelDragone,   // 094
+	DieciMosse,          // 126
+	ScorteAllaRinfusa1,  // 152
+	PassaggioInviolato2, // 159
+	ScorteAllaRinfusa2,  // 162
 	Pappagallo,
 	LoScrignoDegliElisiRiaperto,
 }
